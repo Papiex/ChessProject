@@ -23,9 +23,16 @@ class Controller:
 
     def run_menu_selection(self) -> None:
         """Get the user menu selection entry"""
-
-        selection = self.view.menu()
-        if selection == "1":
-            self.get_info_tournament()
-        if selection == "2":
-            self.view.show_tournaments()
+        run = "Y"
+        while run == "Y":
+            selection = self.view.menu()
+            if selection == "1":
+                self.get_info_tournament()
+            if selection == "2":
+                self.view.show_tournaments()
+            if selection == "3":
+                self.get_info_player()
+            if selection == "4":
+                self.view.show_players()
+            if selection == "5":
+                run = "N"
