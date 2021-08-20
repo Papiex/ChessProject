@@ -1,9 +1,6 @@
 from data import TOURNAMENTS, PLAYERS
 
 
-# PLAYERS_NUMBERS = 8
-
-
 class Player:
     """Class defining a player with first and last name, birthday, genre and his ranking"""
     def __init__(self, first_name, last_name, birthday, genre) -> None:
@@ -12,7 +9,7 @@ class Player:
         self.last_name = last_name
         self.birthday = birthday
         self.genre = genre
-        # self.ranking = ranking
+        self.ranking = 0
 
     def save(self) -> None:
         """Save the info of a player"""
@@ -20,14 +17,15 @@ class Player:
             "First Name": self.first_name,
             "Last Name": self.last_name,
             "Birthday": self.birthday,
-            "Genre": self.genre
+            "Genre": self.genre,
+            "Ranking": self.ranking
         })
 
 
 class Tournament:
     """Class defining a tournament with name, place, the date, defaut rounds number, current round, list of the
        players, time and description"""
-    def __init__(self, name, place, date, description) -> None:
+    def __init__(self, name, place, date, time, description) -> None:
 
         self.name = name
         self.place = place
@@ -35,16 +33,16 @@ class Tournament:
         self.rounds_number = 4
         self.current_round = 1
         self.players = []
-        # self.time = time
+        self.time = time
         self.description = description
 
     def save(self) -> None:
         """Save the info in tournaments.json"""
-
         TOURNAMENTS.insert({
             "Name": self.name,
             "Place": self.place,
             "Date": self.date,
+            "Time": self.time,
             "Description": self.description
             })
 
@@ -53,12 +51,3 @@ class Round:
 
     def __init__(self) -> None:
         pass
-
-
-"""
-
-Blitz = 10 min ou moins par tour
-Bullet = 1 min
-coup rapide = *
-
-"""

@@ -22,20 +22,44 @@ class View:
         """Get info of a tournament"""
         is_valid = False
         while is_valid is not True:
-            name = input("Enter the name of the tournament : ")
+            name = input("Enter the name of the tournament : ").title()
             is_valid = self.check_input_string(name)
 
         is_valid = False
         while is_valid is not True:
-            place = input("Enter the place of the tournament : ")
+            place = input("Enter the place of the tournament : ").title()
             is_valid = self.check_input_string(place)
 
         date = input("Enter the date with this format YEAR-MONTH-DAY : ")
         self.check_date_input(date)
 
+        is_valid = False
+        while is_valid is not True:
+            time = input(
+                "1: Bullet = 1 minute \n"
+                "2: Blitz = 10 minute \n"
+                "3: Rapid = 15 minute \n"
+                "Choose a number to define the time between tour : "
+            )
+            if len(time) >= 2:
+                print("Accept only [1] for bullet and [2] for blitz and [3] for rapid !")
+            elif time == "1":
+                time = 1
+                is_valid = True
+                break
+            elif time == "2":
+                time = 10
+                is_valid = True
+                break
+            elif time == "3":
+                time = 15
+                is_valid = True
+            else:
+                pass
+
         description = input("Enter description of the tournament : ")
         print("\n The tournament named '{}' has been saved !".format(name))
-        return name, place, date, description
+        return name, place, date, time, description
 
     def show_tournaments(self) -> None:
         """Show all the tournaments saved in tournaments.json"""
@@ -46,12 +70,12 @@ class View:
         """Get info of a player"""
         is_valid = False
         while is_valid is not True:
-            first_name = input("Enter first name : ")
+            first_name = input("Enter first name : ").title()
             is_valid = self.check_input_string(first_name)
 
         is_valid = False
         while is_valid is not True:
-            last_name = input("Enter last name : ")
+            last_name = input("Enter last name : ").title()
             is_valid = self.check_input_string(last_name)
 
         birthday = input("Enter date of birth with this format YEAR-MONTH-DAY :  ")
@@ -92,7 +116,6 @@ class View:
     def check_input_string(self, string_to_check) -> bool:
         """Check input string entry for not to use special characters and check
            if the string have 2 character minimum"""
-        is_valid = False
         for symbol in punctuation:
             if symbol in string_to_check:
                 is_valid = False

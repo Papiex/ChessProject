@@ -5,4 +5,4 @@ if __name__ == "__main__":
 
     view = View()
     chess = Controller(view)
-    chess.run_menu_selection()
+    run = chess.run_menu_selection()
