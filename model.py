@@ -14,25 +14,25 @@ class Player:
     def save(self) -> None:
         """Save the info of a player"""
         PLAYERS.insert({
-            "First Name": self.first_name,
-            "Last Name": self.last_name,
-            "Birthday": self.birthday,
-            "Genre": self.genre,
-            "Ranking": self.ranking
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "birthday": self.birthday,
+            "genre": self.genre,
+            "ranking": self.ranking
         })
 
 
 class Tournament:
     """Class defining a tournament with name, place, the date, defaut rounds number, current round, list of the
        players, time and description"""
-    def __init__(self, name, place, date, time, description) -> None:
+    def __init__(self, name, place, date, players, time, description) -> None:
 
         self.name = name
         self.place = place
         self.date = date
         self.rounds_number = 4
         self.current_round = 1
-        self.players = []
+        self.players = players
         self.time = time
         self.description = description
 
@@ -48,6 +48,7 @@ class Tournament:
 
 
 class Round:
+    """Class defining a round"""
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, players) -> None:
+        self.players = players
