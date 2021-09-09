@@ -1,5 +1,10 @@
 from model import Tournament, Player
-from data import PLAYERS
+from data import PLAYERS, TOURNAMENTS
+
+from typing import Union
+import json
+
+from tinydb import where
 
 
 class Controller:
@@ -14,18 +19,18 @@ class Controller:
             if self.check_data_players_numbers() is True:
                 break
         name, place, date, time, description = self.view.ask_info_tournament()
-        players = self.instantiates_players()
-        tournament = Tournament(name, place, date, players, time, description)
+        tournament = Tournament(name, place, date, time, description)
         tournament.save()
         print("\n The tournament named '{}' has been saved !".format(name))
         # TEST
-        print(tournament.players["player_1"].first_name)
+        # print(tournament.players["player_1"].first_name)
 
     def get_info_player(self) -> None:
         """Get the user entry info and create a player"""
 
         first_name, last_name, birthday, genre = self.view.ask_info_player()
-        player = Player(first_name, last_name, birthday, genre)
+        ranking = 0
+        player = Player(first_name, last_name, birthday, genre, ranking)
         player.save()
 
     def run_menu_selection(self) -> None:
@@ -44,8 +49,10 @@ class Controller:
             if selection == "5":
                 run = "No"
             if selection == "6":
+                self.add_tournament_players()
+            if selection == "7":
                 # TEST
-                self.instantiates_players()
+                self.view.show_players_specific_tournament()
 
     def check_data_players_numbers(self) -> bool:
         """check if database has 8 minimum players saved in """
@@ -55,7 +62,7 @@ class Controller:
         if get_players_numbers_saved <= 7:
             print("The database of players need 8 saved players minimum !")
             return False
-        elif get_players_numbers_saved == 8:
+        elif get_players_numbers_saved == 8 or get_players_numbers_saved > 8:
             return True
 
     def instantiates_players(self) -> dict:
@@ -68,8 +75,35 @@ class Controller:
                 first_name=player_data.get("first_name"),
                 last_name=player_data.get("last_name"),
                 birthday=player_data.get("birthday"),
-                genre=player_data.get("genre")
+                genre=player_data.get("genre"),
+                ranking=player_data.get("ranking")
             )
-        # print(players_list["player_1"].first_name)
-        # print(players_list["player_4"].first_name)
         return players_list
+
+    def instantiate_tournament(self) -> Union[Tournament, int]:
+        """instantiate tournament saved in tournaments.json"""
+        self.view.show_tournaments()
+        tournament_id = self.view.request_id(TOURNAMENTS)
+        tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+        tournament = Tournament(
+            name=tournament_data.get("name"),
+            place=tournament_data.get("place"),
+            date=tournament_data.get("date"),
+            time=tournament_data.get("time"),
+            description=tournament_data.get("description")
+        )
+        return tournament, tournament_id
+
+    def add_tournament_players(self):
+        """Add 8 players to a selected tournament"""
+        tournament, tournament_id = self.instantiate_tournament()
+        tournament.players = self.instantiates_players()
+        tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+        serialized_players_list = []
+
+        for player in tournament.players.values():
+            serialized_player = json.dumps(player.__dict__)
+            serialized_players_list.append(serialized_player)
+
+        TOURNAMENTS.update({"players": serialized_players_list}, where("name") == tournament_data.get("name"))
+        print("Selected players have been added to the tournament")
