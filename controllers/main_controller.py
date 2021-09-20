@@ -22,7 +22,7 @@ class Controller:
         self.run_report_menu = "Yes"
 
     def run_main_menu_selection(self) -> None:
-        """Get the user menu selection entry."""
+        """Get the user menu selection entry.."""
         self.run_report_menu = "No"
 
         while self.run_main_menu == "Yes":
