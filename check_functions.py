@@ -2,6 +2,7 @@
 from string import digits, punctuation
 
 import datetime
+import os
 
 
 def check_input_string_len(string_to_check) -> bool:
@@ -41,9 +42,9 @@ def check_date_input() -> str:
             print("The correct date format is YEAR-MONTH-DAY : ")
 
 
-def check_not_same_value(players_id: dict, id_choice: int) -> bool:
+def check_not_same_value(players_id: list, id_choice: int) -> bool:
     """check if dict contains two same values and return True or false"""
-    for value in players_id.values():
+    for value in players_id:
         if value == id_choice:
             print("You already selected this player : ")
             return False
@@ -61,9 +62,11 @@ def request_id(data_file) -> int:
         object_counter = 0
         for object in data_file:
             object_counter += 1
-        if id_choice > object_counter:
+        if id_choice == "":
             print("Select a valid id : ")
         elif id_choice == 0:
+            print("Select a valid id : ")
+        elif id_choice > object_counter:
             print("Select a valid id : ")
         else:
             return id_choice
@@ -93,3 +96,9 @@ def request_selection_with_number(option_1: str or int, option_2: str or int, op
             print("Enter a valid number : ")
         else:
             print("Enter a valid number : ")
+
+
+def clear_terminal():
+    """clear the terminal on windows or linux"""
+
+    os.system('cls' if os.name == 'nt' else 'clear')
