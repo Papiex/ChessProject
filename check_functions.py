@@ -2,7 +2,6 @@
 from string import digits, punctuation
 
 import datetime
-import os
 
 
 def check_input_string_len(string_to_check) -> bool:
@@ -96,9 +95,3 @@ def request_selection_with_number(option_1: str or int, option_2: str or int, op
             print("Enter a valid number : ")
         else:
             print("Enter a valid number : ")
-
-
-def clear_terminal():
-    """clear the terminal on windows or linux"""
-
-    os.system('cls' if os.name == 'nt' else 'clear')
