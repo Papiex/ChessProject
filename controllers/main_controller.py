@@ -37,21 +37,21 @@ class Controller:
             if selection == "1":
                 self.tournament_controller.get_info_tournament()
             if selection == "2":
-                self.player_controller.get_info_player()
-            if selection == "3":
                 self.tournament_controller.add_tournament_players()
-            if selection == "4":
-                self.run_report_menu = "Yes"
-                self.run_report_menu_selection()
-            if selection == "5":
-                self.run_main_menu = "No"
-            if selection == "8":
+            if selection == "3":
                 self.tournament_controller.view.show_tournaments()
                 round, rounds_results_list = self.round_controller.run_rounds()
                 round.update_rounds(rounds_results_list[0], "round_1")
                 round.update_rounds(rounds_results_list[1], "round_2")
                 round.update_rounds(rounds_results_list[2], "round_3")
                 round.update_rounds(rounds_results_list[3], "round_4")
+            if selection == "4":
+                self.player_controller.get_info_player()
+            if selection == "5":
+                self.run_report_menu = "Yes"
+                self.run_report_menu_selection()
+            if selection == "6":
+                self.run_main_menu = "No"
             if selection == "":
                 print("You must enter a number ! ")
 
