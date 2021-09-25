@@ -8,6 +8,7 @@ from views.round_view import RoundView
 from data import TOURNAMENTS
 
 import check_functions as check
+import utils
 
 
 class Controller:
@@ -46,18 +47,11 @@ class Controller:
                 self.run_main_menu = "No"
             if selection == "8":
                 self.tournament_controller.view.show_tournaments()
-                # Tour 1
-                players_list, round, tuple_results = self.round_controller.run_first_round()
-                round.update_rounds(tuple_results, "round_1")
-                # Tour 2
-                players_list, round, tuple_results = self.round_controller.run_rounds_2_to_4(players_list, round)
-                round.update_rounds(tuple_results, "round_2")
-                # Tour 3
-                players_list, round, tuple_results = self.round_controller.run_rounds_2_to_4(players_list, round)
-                round.update_rounds(tuple_results, "round_3")
-                # Tour 4
-                players_list, round, tuple_results = self.round_controller.run_rounds_2_to_4(players_list, round)
-                round.update_rounds(tuple_results, "round_4")
+                round, rounds_results_list = self.round_controller.run_rounds()
+                round.update_rounds(rounds_results_list[0], "round_1")
+                round.update_rounds(rounds_results_list[1], "round_2")
+                round.update_rounds(rounds_results_list[2], "round_3")
+                round.update_rounds(rounds_results_list[3], "round_4")
             if selection == "":
                 print("You must enter a number ! ")
 
@@ -67,11 +61,14 @@ class Controller:
             selection = self.view.report_menu()
             if selection == "1":
                 self.tournament_controller.view.show_tournaments()
+                utils.display_enter_to_continue()
             if selection == "2":
                 self.player_controller.view.show_players()
+                utils.display_enter_to_continue()
             if selection == "3":
                 self.tournament_controller.view.show_tournaments()
                 self.player_controller.view.show_players_specific_tournament()
+                utils.display_enter_to_continue()
             if selection == "4":
                 self.run_round_report_menu = "Yes"
                 self.run_round_report_menu_selection()
@@ -88,14 +85,14 @@ class Controller:
         while self.run_round_report_menu == "Yes":
             selection = self.view.round_report_menu(tournament_id)
             if selection == "1":
-                self.tournament_view.show_rounds_results(tournament_id)
+                self.tournament_view.show_rounds_results(tournament_id, "all")
             if selection == "2":
-                self.tournament_view.show_round_1_results(tournament_id)
+                self.tournament_view.show_rounds_results(tournament_id, "score_round_1")
             if selection == "3":
-                self.tournament_view.show_round_2_results(tournament_id)
+                self.tournament_view.show_rounds_results(tournament_id, "score_round_2")
             if selection == "4":
-                self.tournament_view.show_round_3_results(tournament_id)
+                self.tournament_view.show_rounds_results(tournament_id, "score_round_3")
             if selection == "5":
-                self.tournament_view.show_round_4_results(tournament_id)
+                self.tournament_view.show_rounds_results(tournament_id, "score_round_4")
             if selection == "6":
                 self.run_report_menu_selection()
