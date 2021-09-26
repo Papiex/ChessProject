@@ -2,21 +2,13 @@ from models.round_model import Round
 from models.player_model import Player
 from data import TOURNAMENTS
 
+from typing import Union
+
 
 class RoundController:
     """Round controller"""
     def __init__(self, view) -> None:
         self.view = view
-
-    def run_first_round(self):
-        """generate players pair of the first tour"""
-        tournament_id = self.view.request_id(TOURNAMENTS)
-        match = Round(tournament_id)
-        pairing_players = match.pairing_first_round()
-        for pair in pairing_players:
-            self.get_score_input(pair[0], pair[1])
-        pairing_players = [item for sublist in pairing_players for item in sublist]
-        match.pairing_second_round(pairing_players)
 
     def get_score_input(self, player_a: Player, player_b: Player):
         """get user entry for a tour between two players"""
@@ -26,13 +18,51 @@ class RoundController:
         if result == 1:
             player_a.tournament_score += 1
             player_b.tournament_score += 0
+            player_a_result = 1
+            player_b_result = 0
         elif result == 0.5:
             player_a.tournament_score += 0.5
             player_b.tournament_score += 0.5
+            player_a_result = 0.5
+            player_b_result = 0.5
         elif result == 0:
             player_a.tournament_score += 0
             player_b.tournament_score += 1
-        print(
-            str(player_a.first_name) + " " + str(player_a.tournament_score) + " " + " | " +
-            str(player_b.first_name) + " " + str(player_b.tournament_score) + "\n"
-            )
+            player_a_result = 0
+            player_b_result = 1
+
+        tuple_result = ((
+            str(player_a.first_name) + " " + str(player_a_result) + " " + " | " +
+            str(player_b.first_name) + " " + str(player_b_result)
+            ))
+        return tuple_result
+
+    def run_rounds(self) -> Union[list[list[tuple]], Round]:
+        """run rounds 1 to 4 and return result list and the round instance"""
+        rounds_results_list = []
+        tuple_results = []
+        tournament_id = self.view.request_id(TOURNAMENTS)
+        start_time = self.view.display_rounds_message("1", "start")
+        round = Round(tournament_id)
+        pairing_players = round.pairing_first_round()
+        for pair in pairing_players:
+            tuple_result = self.get_score_input(pair[0], pair[1])
+            tuple_results.append(tuple_result)
+        players_list = [item for sublist in pairing_players for item in sublist]
+        end_time = self.view.display_rounds_message("1", "end")
+        tuple_results.append((start_time, end_time))
+        rounds_results_list.append(tuple_results)
+
+        for i in range(2, 5):
+            start_time = self.view.display_rounds_message(str(i), "start")
+            tuple_results = []
+            pairing_players = round.pairing_other_rounds(players_list)
+            for pair in pairing_players:
+                tuple_result = self.get_score_input(pair[0], pair[1])
+                tuple_results.append(tuple_result)
+            players_list = [item for sublist in pairing_players for item in sublist]
+            end_time = self.view.display_rounds_message(str(i), "end")
+            tuple_results.append((start_time, end_time))
+            rounds_results_list.append(tuple_results)
+
+        return round, rounds_results_list
