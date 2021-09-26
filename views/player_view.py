@@ -2,6 +2,7 @@ from models.player_model import Player
 from data import PLAYERS, TOURNAMENTS
 
 import check_functions as check
+import utils
 
 import json
 
@@ -53,10 +54,11 @@ class PlayerView:
                 str(player.get("first_name")) + " " +
                 str(player.get("last_name")) + " | " +
                 str(player.get("birthday")) + " | " +
-                str(player.get("genre"))
+                str(player.get("genre")) + " | " +
+                str(player.get("ranking"))
                 )
             players_list.append(data_player)
-
+        utils.clear_terminal()
         print(
             "Do you want the list of players by alphabetical order ? \n"
             "1 - Yes \n"
@@ -66,13 +68,19 @@ class PlayerView:
         if choice == "Yes":
             player_id = 0
             players_list.sort()
-            print("LIST OF ALL PLAYERS IN ALPHABETICAL ORDER : ")
+            utils.clear_terminal()
+            print("============================================")
+            print("List of all Players in alphabetical order : ")
+            print("============================================")
             for player in players_list:
                 player_id += 1
                 print(str(player_id) + " : " + player)
         elif choice == "No":
             player_id = 0
-            print("LIST OF ALL PLAYERS : ")
+            utils.clear_terminal()
+            print("======================")
+            print("List of all Players : ")
+            print("======================")
             for player in players_list:
                 player_id += 1
                 print(str(player_id) + " : " + player)
@@ -89,6 +97,7 @@ class PlayerView:
             for player_data in players_list:
                 deserialized_player = Player(**json.loads(player_data))
                 deserialized_player_list.append(deserialized_player)
+            utils.clear_terminal()
             print(
                 "Do you want the list of players by alphabetical order ? \n"
                 "1 - Yes \n"
@@ -96,24 +105,24 @@ class PlayerView:
                 )
             choice = check.request_selection_with_number("Yes", "No", "None")
             if choice == "Yes":
+                utils.clear_terminal()
                 deserialized_player_list = sorted(deserialized_player_list, key=lambda player: player.first_name)
                 for deserialized_player in deserialized_player_list:
                     print(deserialized_player)
             elif choice == "No":
+                utils.clear_terminal()
                 for deserialized_player in deserialized_player_list:
                     print(deserialized_player)
 
-    def create_players_id_dict(self) -> dict:
-        """Request 8 id of players saved in players.json and return dict like this player_1 = id_selected ect"""
-        players_id = {}
-        key = 0
+    def create_players_id_dict(self) -> list:
+        """Request 8 id of players saved in players.json and return a list of ids"""
+        players_id = []
         self.show_players()
         print("\n" + "Enter id of wanted players : ")
         while len(players_id) < 8:
             while True:
                 id_choice = check.request_id(PLAYERS)
                 if check.check_not_same_value(players_id, id_choice) is True:
-                    key += 1
-                    players_id["player_{0}".format(str(key))] = id_choice
+                    players_id.append(id_choice)
                     break
         return players_id
