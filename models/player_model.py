@@ -1,5 +1,7 @@
 from data import PLAYERS
 
+import json
+
 
 class Player:
     """Class defining a player with first and last name, birthday, genre and his ranking"""
@@ -23,9 +25,23 @@ class Player:
             "ranking": self.ranking,
         })
 
-    def add_faced_player(self, player) -> None:
-        """Save a faced player in a list"""
-        self.faced_players.append(player)
+    def serialize(self) -> dict:
+        """serialize a player"""
+        serialized_player = json.dumps(self.__dict__)
+        return serialized_player
+
+    @staticmethod
+    def deserialize_player(cls, key: int) -> "Player":
+        """deserialize one player and instantiate it"""
+        player_data = PLAYERS.get(doc_id=key)
+        player = cls(
+            first_name=player_data.get("first_name"),
+            last_name=player_data.get("last_name"),
+            birthday=player_data.get("birthday"),
+            genre=player_data.get("genre"),
+            ranking=player_data.get("ranking"),
+        )
+        return player
 
     def __repr__(self):
         """redifining repr method for print cleaned data"""
