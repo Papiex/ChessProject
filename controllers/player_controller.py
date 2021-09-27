@@ -11,7 +11,8 @@ class PlayerController:
 
         first_name, last_name, birthday, genre = self.view.ask_info_player()
         ranking = 0
-        player = Player(first_name, last_name, birthday, genre, ranking)
+        faced_players = []
+        player = Player(first_name, last_name, birthday, genre, ranking, faced_players)
         player.save()
 
     def instantiates_players(self) -> list[Player]:

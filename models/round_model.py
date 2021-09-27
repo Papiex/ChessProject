@@ -5,6 +5,8 @@ from itertools import repeat
 from typing import Union
 import json
 
+import utils
+
 from tinydb import where
 
 
@@ -62,8 +64,8 @@ class Round:
             else:
                 already_paired.append(pair[0])
                 already_paired.append(pair[1])
-                pair[0].faced_players.append(pair[1].first_name)
-                pair[1].faced_players.append(pair[0].first_name)
+                # pair[0].faced_players.append(pair[1].first_name)
+                # pair[1].faced_players.append(pair[0].first_name)
                 apairing_players.append(pair)
                 id_number += 1
             if times_number_loop == 50:
@@ -109,13 +111,14 @@ class Round:
                 else:
                     return pair
 
-    def update_rounds(self, tuple_results: list[tuple[Player]], round_number: str) -> None:
+    def update_rounds_score(self, tuple_results: list[tuple[Player]], round_number: str) -> None:
         """
         save the result of a match
         round_number parameter :
             Enter "round_1" for save score of the round_1
             Enter "round_2" for save score of the round_2 ect ...
         """
+        utils.display_enter_to_continue()
         if round_number == "round_1":
             TOURNAMENTS.update(
                 {"score_round_1": tuple_results}, where("score_round_1") == self.tournament_data.get("score_round_1")

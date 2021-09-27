@@ -31,7 +31,7 @@ class TournamentController:
         self.view.display_choose_a_tournament()
         tournament_id = check.request_id(TOURNAMENTS)
         tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
-        tournament.players, tournament.players_round_id = self.player_controller.instantiates_players()
+        tournament.players = self.player_controller.instantiates_players()
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         serialized_players_list = []
 
