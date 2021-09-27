@@ -88,3 +88,12 @@ class RoundView:
                 )
             utils.display_enter_to_continue()
         return date_and_time
+
+    def display_continue_to_next_round(self) -> None:
+        """simply print message for continue tournament or not"""
+        utils.clear_terminal()
+        print("Do you want to continue to the next Round ?")
+        print(
+            "1 - Continue to the next Round\n"
+            "2 - Exit and save"
+            )
