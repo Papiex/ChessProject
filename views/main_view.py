@@ -13,12 +13,12 @@ class View:
         print("                            MAIN MENU                            ")
         print(
             "\n"
-            "                | 1 -    Create a tournament      |\n"
-            "                | 2 - Add players to a Tournament |\n"
-            "                | 3 -    Launch a Tournament      |\n"
-            "                | 4 -   Add player to database    |\n"
-            "                | 5 -        Reports Menu         |\n"
-            "                | 6 -      Exit the program       |"
+            "                | 1 -      Create a tournament         |\n"
+            "                | 2 -   Add players to a Tournament    |\n"
+            "                | 3 - Launch or continue a Tournament  |\n"
+            "                | 4 -     Add player to database       |\n"
+            "                | 5 -         Reports Menu             |\n"
+            "                | 6 -       Exit the program           |"
 
             )
         print(" ________________________________________________________________")
