@@ -5,7 +5,7 @@ import json
 
 class Player:
     """Class defining a player with first and last name, birthday, genre and his ranking"""
-    def __init__(self, first_name, last_name, birthday, genre, ranking, faced_players=[], tournament_score=0) -> None:
+    def __init__(self, first_name, last_name, birthday, genre, ranking, faced_players, tournament_score=0) -> None:
 
         self.first_name = first_name
         self.last_name = last_name
@@ -23,6 +23,7 @@ class Player:
             "birthday": self.birthday,
             "genre": self.genre,
             "ranking": self.ranking,
+            "faced_players": self.faced_players
         })
 
     def serialize(self) -> dict:
@@ -40,7 +41,21 @@ class Player:
             birthday=player_data.get("birthday"),
             genre=player_data.get("genre"),
             ranking=player_data.get("ranking"),
+            faced_players=player_data.get("faced_players")
         )
+        return player
+
+    @staticmethod
+    def deserialize_player_for_next_round(cls, player_dict) -> "Player":
+        """deserialize one player and instantiate it"""
+        player = cls(
+            first_name=player_dict.get("first_name"),
+            last_name=player_dict.get("last_name"),
+            birthday=player_dict.get("birthday"),
+            genre=player_dict.get("genre"),
+            ranking=player_dict.get("ranking"),
+        )
+        player.faced_players = player_dict.get("faced_players")
         return player
 
     def __repr__(self):
