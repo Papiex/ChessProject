@@ -38,13 +38,10 @@ class Controller:
                 self.tournament_controller.get_info_tournament()
             if selection == "2":
                 self.tournament_controller.add_tournament_players()
+                utils.display_enter_to_continue()
             if selection == "3":
                 self.tournament_controller.view.show_tournaments()
-                round, rounds_results_list = self.round_controller.run_rounds()
-                round.update_rounds(rounds_results_list[0], "round_1")
-                round.update_rounds(rounds_results_list[1], "round_2")
-                round.update_rounds(rounds_results_list[2], "round_3")
-                round.update_rounds(rounds_results_list[3], "round_4")
+                self.round_controller.run_rounds()
             if selection == "4":
                 self.player_controller.get_info_player()
             if selection == "5":
