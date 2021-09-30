@@ -1,3 +1,4 @@
+from models.player_model import Player
 from controllers.tournament_controller import TournamentController
 from controllers.player_controller import PlayerController
 from controllers.round_controller import RoundController
@@ -45,9 +46,12 @@ class Controller:
             if selection == "4":
                 self.player_controller.get_info_player()
             if selection == "5":
+                self.player_controller.view.show_players()
+                Player.modify_player_ranking(Player)
+            if selection == "6":
                 self.run_report_menu = "Yes"
                 self.run_report_menu_selection()
-            if selection == "6":
+            if selection == "7":
                 self.run_main_menu = "No"
             if selection == "":
                 print("You must enter a number ! ")

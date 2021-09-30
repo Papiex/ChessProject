@@ -1,4 +1,6 @@
 from data import PLAYERS
+import check_functions as check
+import utils
 
 import json
 
@@ -30,6 +32,24 @@ class Player:
         """serialize a player"""
         serialized_player = json.dumps(self.__dict__)
         return serialized_player
+
+    def update_general_ranking(self):
+        """Update general ranking of a player after a tournament in players database"""
+        pass
+
+    @staticmethod
+    def modify_player_ranking(cls: "Player"):
+        """To modify manually the player ranking"""
+        player_id = check.request_id(PLAYERS)
+        print(str(player_id))
+        player = Player.deserialize_player(Player, player_id)
+        utils.clear_terminal()
+        print(f"The general score of {player.first_name} is {str(player.ranking)}")
+        print(f"Enter the new general score for {player.first_name} : ")
+        new_player_score = check.request_only_numbers()
+        PLAYERS.update({"ranking": new_player_score}, doc_ids=[player_id])
+        print(f"The general score of {player.first_name} is now at {str(new_player_score)}")
+        utils.display_enter_to_continue()
 
     @staticmethod
     def deserialize_player(cls, key: int) -> "Player":

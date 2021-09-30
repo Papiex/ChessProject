@@ -50,37 +50,38 @@ class PlayerView:
         """Show all players with id in players.json in alphabetical order or not according to the user choice"""
         players_list = []
         for player in PLAYERS:
-            data_player = (
+            data_player = ((
                 str(player.get("first_name")) + " " +
                 str(player.get("last_name")) + " | " +
                 str(player.get("birthday")) + " | " +
                 str(player.get("genre")) + " | " +
                 str(player.get("ranking"))
-                )
+                ))
             players_list.append(data_player)
         utils.clear_terminal()
         print(
-            "Do you want the list of players by alphabetical order ? \n"
-            "1 - Yes \n"
-            "2 - No"
+            "Do you want the list of players by alphabetical order or by ranking ? \n"
+            "1 - Ranking players list \n"
+            "2 - Alphabetical players list"
             )
-        choice = check.request_selection_with_number("Yes", "No", "None")
-        if choice == "Yes":
+        choice = check.request_selection_with_number("ranking", "alphabetical", "None")
+        if choice == "ranking":
+            player_id = 0
+            players_list = sorted(players_list, key=lambda player: players_list[4])
+            utils.clear_terminal()
+            print("==========================================")
+            print("List of all Players in ranking order : ")
+            print("==========================================")
+            for player in players_list:
+                player_id += 1
+                print(str(player_id) + " : " + player)
+        elif choice == "alphabetical":
             player_id = 0
             players_list.sort()
             utils.clear_terminal()
             print("============================================")
             print("List of all Players in alphabetical order : ")
             print("============================================")
-            for player in players_list:
-                player_id += 1
-                print(str(player_id) + " : " + player)
-        elif choice == "No":
-            player_id = 0
-            utils.clear_terminal()
-            print("======================")
-            print("List of all Players : ")
-            print("======================")
             for player in players_list:
                 player_id += 1
                 print(str(player_id) + " : " + player)
@@ -99,18 +100,19 @@ class PlayerView:
                 deserialized_player_list.append(deserialized_player)
             utils.clear_terminal()
             print(
-                "Do you want the list of players by alphabetical order ? \n"
-                "1 - Yes \n"
-                "2 - No"
+                "Do you want the list of players by alphabetical order or by ranking ? \n"
+                "1 - Ranking players list \n"
+                "2 - Alphabetical players list"
                 )
-            choice = check.request_selection_with_number("Yes", "No", "None")
-            if choice == "Yes":
+            choice = check.request_selection_with_number("alphabetical", "ranking", "None")
+            if choice == "alphabetical":
                 utils.clear_terminal()
                 deserialized_player_list = sorted(deserialized_player_list, key=lambda player: player.first_name)
                 for deserialized_player in deserialized_player_list:
                     print(deserialized_player)
-            elif choice == "No":
+            elif choice == "ranking":
                 utils.clear_terminal()
+                deserialized_player_list = sorted(deserialized_player_list, key=lambda player: player.ranking)
                 for deserialized_player in deserialized_player_list:
                     print(deserialized_player)
 
