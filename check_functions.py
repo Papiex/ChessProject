@@ -95,3 +95,14 @@ def request_selection_with_number(option_1: str or int, option_2: str or int, op
             print("Enter a valid number : ")
         else:
             print("Enter a valid number : ")
+
+
+def request_only_numbers() -> int:
+    """check and return only integers"""
+    while True:
+        try:
+            number = int(input())
+            break
+        except ValueError:
+            print("Enter only numbers : ")
+    return number
