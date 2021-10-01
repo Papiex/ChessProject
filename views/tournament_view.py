@@ -43,7 +43,7 @@ class TournamentView:
             "3: Rapid = 15 minute \n"
             "Choose a number to define the time between tour : "
         )
-        time = check.request_selection_with_number(1, 10, 15)
+        time = check.request_selection_with_number("Bullet", "Blitz", "Rapid")
         utils.clear_terminal()
         description = input("Enter description of the tournament : ")
         utils.clear_terminal()
@@ -58,12 +58,14 @@ class TournamentView:
         print("==========================")
         print("List of all Tournaments : ")
         print("==========================")
+
         for tournament in TOURNAMENTS:
             tournament_id += 1
             print(
                 f"{str(tournament_id)} : {tournament.get('name')} |"
                 f" {tournament.get('place')} |"
                 f" {tournament.get('date')}  |"
+                f" Time : {tournament.get('time')} |"
                 f" {tournament.get('description')}"
             )
 
@@ -165,3 +167,8 @@ class TournamentView:
     def display_choose_a_tournament(self) -> None:
         """simply print a message"""
         print("\nChoose a tournament for add players : ")
+
+    def display_empty_tournaments_file(self) -> None:
+        """Simply display message if tournaments.json are empty"""
+        utils.clear_terminal()
+        print("\nNo tournament has been created yet")

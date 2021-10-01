@@ -128,3 +128,8 @@ class PlayerView:
                     players_id.append(id_choice)
                     break
         return players_id
+
+    def display_empty_players_file(self) -> None:
+        """Simply display message if players.json are empty"""
+        utils.clear_terminal()
+        print("\nNo players has been created yet")

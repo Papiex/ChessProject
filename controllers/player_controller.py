@@ -1,3 +1,4 @@
+from data import PLAYERS
 from models.player_model import Player
 
 
@@ -24,3 +25,14 @@ class PlayerController:
             deserialized_players_list.append(player)
 
         return deserialized_players_list
+
+    def check_data_players_numbers(self) -> bool:
+        """check if json are empty or not"""
+        players_number = 0
+        for player in PLAYERS:
+            players_number += 1
+
+        if players_number != 0:
+            return False
+        else:
+            return True

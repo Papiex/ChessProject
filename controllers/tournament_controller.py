@@ -27,22 +27,36 @@ class TournamentController:
 
     def add_tournament_players(self):
         """Add 8 serialized players to a selected tournament"""
-        self.view.show_tournaments()
-        self.view.display_choose_a_tournament()
-        tournament_id = check.request_id(TOURNAMENTS)
-        tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
-        tournament.players = self.player_controller.instantiates_players()
-        tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
-        serialized_players_list = []
+        if self.check_data_tournaments_numbers():
+            self.view.display_empty_tournaments_file()
+        else:
+            self.view.show_tournaments()
+            self.view.display_choose_a_tournament()
+            tournament_id = check.request_id(TOURNAMENTS)
+            tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
+            tournament.players = self.player_controller.instantiates_players()
+            tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+            serialized_players_list = []
 
-        for player in tournament.players:
-            serialized_player = player.serialize()
-            serialized_players_list.append(serialized_player)
+            for player in tournament.players:
+                serialized_player = player.serialize()
+                serialized_players_list.append(serialized_player)
 
-        TOURNAMENTS.update({"players": serialized_players_list}, where("name") == tournament_data.get("name"))
-        TOURNAMENTS.update(
-            {"players_round_id": tournament.players_round_id},
-            where("players_round_id") == tournament_data.get("players_round_id"))
+            TOURNAMENTS.update({"players": serialized_players_list}, where("name") == tournament_data.get("name"))
+            TOURNAMENTS.update(
+                {"players_round_id": tournament.players_round_id},
+                where("players_round_id") == tournament_data.get("players_round_id"))
 
-        utils.clear_terminal()
-        self.view.display_selected_players(tournament.players)
+            utils.clear_terminal()
+            self.view.display_selected_players(tournament.players)
+
+    def check_data_tournaments_numbers(self) -> bool:
+        """check if json are empty or not"""
+        tournaments_number = 0
+        for tournament in TOURNAMENTS:
+            tournaments_number += 1
+
+        if tournaments_number != 0:
+            return False
+        else:
+            return True

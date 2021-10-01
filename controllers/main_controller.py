@@ -41,13 +41,20 @@ class Controller:
                 self.tournament_controller.add_tournament_players()
                 utils.display_enter_to_continue()
             if selection == "3":
-                self.tournament_controller.view.show_tournaments()
-                self.round_controller.run_rounds()
+                if self.tournament_controller.check_data_tournaments_numbers():
+                    self.tournament_view.display_empty_tournaments_file()
+                    utils.display_enter_to_continue()
+                else:
+                    self.round_controller.run_rounds()
             if selection == "4":
                 self.player_controller.get_info_player()
             if selection == "5":
-                self.player_controller.view.show_players()
-                Player.modify_player_ranking(Player)
+                if self.player_controller.check_data_players_numbers:
+                    self.player_view.display_empty_players_file()
+                    utils.display_enter_to_continue()
+                else:
+                    self.player_controller.view.show_players()
+                    Player.modify_player_ranking(Player)
             if selection == "6":
                 self.run_report_menu = "Yes"
                 self.run_report_menu_selection()
@@ -61,11 +68,19 @@ class Controller:
         while self.run_report_menu == "Yes":
             selection = self.view.report_menu()
             if selection == "1":
-                self.tournament_controller.view.show_tournaments()
-                utils.display_enter_to_continue()
+                if self.tournament_controller.check_data_tournaments_numbers():
+                    self.tournament_view.display_empty_tournaments_file()
+                    utils.display_enter_to_continue()
+                else:
+                    self.tournament_controller.view.show_tournaments()
+                    utils.display_enter_to_continue()
             if selection == "2":
-                self.player_controller.view.show_players()
-                utils.display_enter_to_continue()
+                if self.player_controller.check_data_players_numbers():
+                    self.player_view.display_empty_players_file()
+                    utils.display_enter_to_continue()
+                else:
+                    self.player_controller.view.show_players()
+                    utils.display_enter_to_continue()
             if selection == "3":
                 self.tournament_controller.view.show_tournaments()
                 self.player_controller.view.show_players_specific_tournament()
