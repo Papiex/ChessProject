@@ -83,7 +83,7 @@ __This program need some libraries, for installing them, use this command (in yo
 ## MAIN MENU - TABLE OF CONTENTS
 
 
-  * [1] [Create a tournament](create-a-tournament)
+  * [1] [Create a tournament](#create-a-tournament)
   * [2 Add players to a Tournament](2-add-players-to-a-tournament)
   * [3 Launch or continue a tournament](3-launch-or-continue-a-tournament)
   * [4 Add player to database](4-add-player-to-database)
