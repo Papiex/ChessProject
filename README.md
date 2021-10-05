@@ -139,8 +139,12 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136037072-357847c4-6f50-411b-bc88-3a33c729d4de.png)
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Launch or continue a tournament
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Add player to database
 
 ¤ ***THE PROGRAM WILL ASK YOU :***
@@ -153,16 +157,25 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136023836-f68d5432-e6f1-4aeb-8385-d900e0da2640.png)
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Modify player general score
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Report menu
 
 ¤ ***GO TO THE***
 <a href="#report-menu">REPORT MENU</a>
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Exit the program
 
 ¤ ***SIMPLY EXIT THE PROGRAM***
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 </details>
   
 <details>
