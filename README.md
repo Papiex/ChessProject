@@ -86,30 +86,16 @@ __This program need some libraries, for installing them, use this command (in yo
 
 # Demonstration
 
-<!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents - Demonstration menus</summary>
-  <ol>
-    <li><a href="#main-menu">MAIN MENU</a></li>
-    <li><a href="#report-menu">REPORT MENU</a></li>
-    <li><a href="#round-report-menu">ROUND REPORT MENU</a></li>
-  </ol>
-</details>
+  <summary><b>MAIN MENU</b></summary>
 
-## MAIN MENU
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents - Main menu of the program</summary>
-  <ol>
-    <li><a href="#create-a-tournament">Create a tournament</a></li>
-    <li><a href="#add-players-to-a-tournament">Add players to a Tournament</a></li>
-    <li><a href="#launch-or-continue-a-tournament">Launch or continue a tournament</a></li>
-    <li><a href="#add-player-to-database">Add player to database</a></li>
-    <li><a href="#modify-player-general-score">Modify player general score</a></li>
-    <li><a href="#report-menu">Report menu</a></li>
-    <li><a href="#exit-the-program">Exit the program</a></li>
-  </ol>
-</details>
+<li><a href="#create-a-tournament">Create a tournament</a></li>
+<li><a href="#add-players-to-a-tournament">Add players to a Tournament</a></li>
+<li><a href="#launch-or-continue-a-tournament">Launch or continue a tournament</a></li>
+<li><a href="#add-player-to-database">Add player to database</a></li>
+<li><a href="#modify-player-general-score">Modify player general score</a></li>
+<li><a href="#report-menu">Report menu</a></li>
+<li><a href="#exit-the-program">Exit the program</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
 
@@ -165,20 +151,16 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 ## Exit the program
 
 ¤ ***SIMPLY EXIT THE PROGRAM***
-
-## REPORT MENU
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents - Report menu of the program</summary>
-  <ol>
-    <li><a href="#show-all-tournaments">Show all tournaments</a></li>
-    <li><a href="#show-all-saved-players">Show all saved players</a></li>
-    <li><a href="#show-players-of-specific-tournament">Show players of specific tournament</a></li>
-    <li><a href="#show-round-report-menu-of-specific-tournament">Show round report menu of specific tournament</a></li>
-    <li><a href="#back-to-the-main-menu">Back to the main menu</a></li>
-  </ol>
 </details>
+  
+<details>
+  <summary><b>REPORT MENU</b></summary>
+
+<li><a href="#show-all-tournaments">Show all tournaments</a></li>
+<li><a href="#show-all-saved-players">Show all saved players</a></li>
+<li><a href="#show-players-of-specific-tournament">Show players of specific tournament</a></li>
+<li><a href="#show-round-report-menu-of-specific-tournament">Show round report menu of specific tournament</a></li>
+<li><a href="#back-to-the-main-menu">Back to the main menu</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136050952-cace051e-2370-4967-8742-f1aecd4bf530.png)
 
@@ -191,18 +173,16 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 ## Show round report menu of specific tournament
 
 ## Back to the main menu
-
-## REPORT MENU
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents - Report menu of the program</summary>
-  <ol>
-    <li><a href="#show-all-rounds-results">Show all rounds results</a></li>
-    <li><a href="#show-round-x-results">Show round X results</a></li>
-    <li><a href="#back-to-the-report-menu">Back to the report menu</a></li>
-  </ol>
+ 
 </details>
+
+<details>
+  <summary><b>ROUND REPORT MENU</b></summary>
+
+  
+<li><a href="#show-all-rounds-results">Show all rounds results</a></li>
+<li><a href="#show-round-x-results">Show round X results</a></li>
+<li><a href="#back-to-the-report-menu">Back to the report menu</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136052754-13420d89-8f89-463a-9d51-e2ab289c99a7.png)
 
@@ -211,3 +191,5 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 ## Show round X results
 
 ## Back to the report menu
+  
+</details>
