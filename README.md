@@ -122,6 +122,8 @@ See the three drop-down menus below for an example of each menu option.
 
 ![image](https://user-images.githubusercontent.com/81369778/136024702-b5e2a6e7-1aeb-4160-bffc-27826356c941.png)
 
+<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+  
 ## Add players to a Tournament
 
 ¤ ***THE PROGRAM WILL SHOW YOU ALL THE TOURNAMENTS
