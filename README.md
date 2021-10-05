@@ -170,6 +170,12 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
 </details>
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
   
 <details>
   <summary><b>REPORT MENU</b></summary>
@@ -193,6 +199,12 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 ## Back to the main menu
  
 </details>
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 <details>
   <summary><b>ROUND REPORT MENU</b></summary>
