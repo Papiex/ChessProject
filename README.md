@@ -7,9 +7,6 @@
   * [Installation on Mac](#installation-on-mac)
   * [Libraries](#libraries)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 #### This program allows you to :
 
 - Create tournaments or players and save them in a database.
@@ -84,15 +81,17 @@ __This program need some libraries, for installing them, use this command (in yo
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
 
 ## MAIN MENU - TABLE OF CONTENTS
- * [1 Create a tournament](1-create-a-tournament)
- * [2 Add players to a Tournament](2-add-players-to-a-tournament)
- * [3 Launch or continue a tournament](3-launch-or-continue-a-tournament)
- * [4 Add player to database](4-add-player-to-database)
- * [5 Modify player general score](5-modify-player-general-score)
- * [6 Report menu](6-report-menu)
- * [7 Exit the program](7-exit-the-program)
 
-## 1 Create a tournament
+
+  * [1] [Create a tournament](create-a-tournament)
+  * [2 Add players to a Tournament](2-add-players-to-a-tournament)
+  * [3 Launch or continue a tournament](3-launch-or-continue-a-tournament)
+  * [4 Add player to database](4-add-player-to-database)
+  * [5 Modify player general score](5-modify-player-general-score)
+  * [6 Report menu](6-report-menu)
+  * [7 Exit the program](7-exit-the-program)
+
+## Create a tournament
 
 ¤ ***THE PROGRAM WILL ASK YOU :***
 - The name
