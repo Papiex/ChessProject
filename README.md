@@ -1,19 +1,12 @@
 # Tournament Chess Program
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Main Table of Contents</summary>
-  <ol>
-    <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#gitbash">Gitbash</a></li>
-    <li><a href="#installation-on-windows">Installation on Windows</a></li>
-    <li><a href="#installation-on-linux">Installation on Linux</a></li>
-    <li><a href="#installation-on-mac">Installation on Mac</a></li>
-    <li><a href="#libraries">Libraries</a></li>
-    <li><a href="#demonstration">Demonstration</a></li>
-  </ol>
-</details>
-
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#gitbash">Gitbash</a></li>
+<li><a href="#installation-on-windows">Installation on Windows</a></li>
+<li><a href="#installation-on-linux">Installation on Linux</a></li>
+<li><a href="#installation-on-mac">Installation on Mac</a></li>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#demonstration">Demonstration</a></li>
 
 ### This program allows you to 🠋
 
