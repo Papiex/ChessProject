@@ -1,13 +1,21 @@
-# Tournament Chess program
+# Tournament Chess Program
 
-  * [Requirements](#requirements)
-  * [Gitbash](#gitbash)
-  * [Installation on Windows](#installation-on-windows)
-  * [Installation on Linux](#installation-on-linux)
-  * [Installation on Mac](#installation-on-mac)
-  * [Libraries](#libraries)
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Main Table of Contents</summary>
+  <ol>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#gitbash">Gitbash</a></li>
+    <li><a href="#installation-on-windows">Installation on Windows</a></li>
+    <li><a href="#installation-on-linux">Installation on Linux</a></li>
+    <li><a href="#installation-on-mac">Installation on Mac</a></li>
+    <li><a href="#libraries">Libraries</a></li>
+    <li><a href="#demonstration">Demonstration</a></li>
+  </ol>
+</details>
 
-#### This program allows you to :
+
+### This program allows you to 🠋
 
 - Create tournaments or players and save them in a database.
 
@@ -21,7 +29,7 @@
 
 - To have a report menu for the information of a player or a round or a tournament
 
-*See below for a demonstration*
+*See below for a* <a href="#demonstration">Demonstration</a>
 
 ## Requirements
 This script is write with Python 3 and require minimum :
@@ -78,18 +86,32 @@ __This program need some libraries, for installing them, use this command (in yo
 
 # Demonstration
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents - Demonstration menus</summary>
+  <ol>
+    <li><a href="#main-menu">MAIN MENU</a></li>
+    <li><a href="#report-menu">REPORT MENU</a></li>
+    <li><a href="#round-report-menu">ROUND REPORT MENU</a></li>
+  </ol>
+</details>
+
+## MAIN MENU
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents - Main menu of the program</summary>
+  <ol>
+    <li><a href="#create-a-tournament">Create a tournament</a></li>
+    <li><a href="#add-players-to-a-tournament">Add players to a Tournament</a></li>
+    <li><a href="#launch-or-continue-a-tournament">Launch or continue a tournament</a></li>
+    <li><a href="#add-player-to-database">Add player to database</a></li>
+    <li><a href="#modify-player-general-score">Modify player general score</a></li>
+    <li><a href="#report-menu">Report menu</a></li>
+    <li><a href="#exit-the-program">Exit the program</a></li>
+  </ol>
+</details>
+
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
-
-## MAIN MENU - TABLE OF CONTENTS
-
-
-  * [1] [Create a tournament](#create-a-tournament)
-  * [2 Add players to a Tournament](2-add-players-to-a-tournament)
-  * [3 Launch or continue a tournament](3-launch-or-continue-a-tournament)
-  * [4 Add player to database](4-add-player-to-database)
-  * [5 Modify player general score](5-modify-player-general-score)
-  * [6 Report menu](6-report-menu)
-  * [7 Exit the program](7-exit-the-program)
 
 ## Create a tournament
 
@@ -104,7 +126,7 @@ __This program need some libraries, for installing them, use this command (in yo
 
 ![image](https://user-images.githubusercontent.com/81369778/136024702-b5e2a6e7-1aeb-4160-bffc-27826356c941.png)
 
-## [2] Add players to a Tournament :
+## Add players to a Tournament
 
 ¤ ***THE PROGRAM WILL SHOW YOU ALL THE TOURNAMENTS
 AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
@@ -119,9 +141,9 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136037072-357847c4-6f50-411b-bc88-3a33c729d4de.png)
 
-## [3] Launch or continue a tournament :
+## Launch or continue a tournament
 
-## [4] Add player to database :
+## Add player to database
 
 ¤ ***THE PROGRAM WILL ASK YOU :***
 - The first name
@@ -133,13 +155,59 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136023836-f68d5432-e6f1-4aeb-8385-d900e0da2640.png)
 
-## [5] Modify player general score :
+## Modify player general score
 
-## [6] Report menu
+## Report menu
 
-¤ ***🠋SEE BELOW FOR ITS USE🠋***
-             (link)
+¤ ***GO TO THE***
+<a href="#report-menu">REPORT MENU</a>
 
-## [7] Exit the program
+## Exit the program
 
 ¤ ***SIMPLY EXIT THE PROGRAM***
+
+## REPORT MENU
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents - Report menu of the program</summary>
+  <ol>
+    <li><a href="#show-all-tournaments">Show all tournaments</a></li>
+    <li><a href="#show-all-saved-players">Show all saved players</a></li>
+    <li><a href="#show-players-of-specific-tournament">Show players of specific tournament</a></li>
+    <li><a href="#show-round-report-menu-of-specific-tournament">Show round report menu of specific tournament</a></li>
+    <li><a href="#back-to-the-main-menu">Back to the main menu</a></li>
+  </ol>
+</details>
+
+![image](https://user-images.githubusercontent.com/81369778/136050952-cace051e-2370-4967-8742-f1aecd4bf530.png)
+
+## Show all tournaments
+
+## Show all saved players
+
+## Show players of specific tournament
+
+## Show round report menu of specific tournament
+
+## Back to the main menu
+
+## REPORT MENU
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents - Report menu of the program</summary>
+  <ol>
+    <li><a href="#show-all-rounds-results">Show all rounds results</a></li>
+    <li><a href="#show-round-x-results">Show round X results</a></li>
+    <li><a href="#back-to-the-report-menu">Back to the report menu</a></li>
+  </ol>
+</details>
+
+![image](https://user-images.githubusercontent.com/81369778/136052754-13420d89-8f89-463a-9d51-e2ab289c99a7.png)
+
+## Show all rounds results
+
+## Show round X results
+
+## Back to the report menu
