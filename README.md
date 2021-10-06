@@ -92,7 +92,7 @@ See the three drop-down menus below for an example of each menu option.
 <details>
   <summary><b>MAIN MENU</b></summary>
 
-<li><a href="#create-a-tournament">Create a tournament</a></li>
+<li><a href="#1---create-a-tournament">1 - Create a tournament</a></li>
 <li><a href="#add-players-to-a-tournament">Add players to a Tournament</a></li>
 <li><a href="#launch-or-continue-a-tournament">Launch or continue a tournament</a></li>
 <li><a href="#add-player-to-database">Add player to database</a></li>
@@ -102,7 +102,7 @@ See the three drop-down menus below for an example of each menu option.
 
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
 
-## Create a tournament
+## 1 - Create a tournament
 
 ¤ ***THE PROGRAM WILL ASK YOU :***
 - The name
