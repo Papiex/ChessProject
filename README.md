@@ -87,7 +87,7 @@ When the program is started, the main menu is displayed.
 
 There are three different menus in the program.
 
-See the three drop-down menus below for an example of each menu option.
+🠋See the three drop-down menus below for an example of each menu option🠋
 
 <details>
   <summary><b>MAIN MENU</b></summary>
