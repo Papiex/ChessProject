@@ -214,28 +214,59 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 <details>
   <summary><b>REPORT MENU</b></summary>
 
-<li><a href="#show-all-tournaments">1 - Show all tournaments</a></li>
-<li><a href="#show-all-saved-players">2 - Show all saved players</a></li>
-<li><a href="#show-players-of-specific-tournament">3 - Show players of specific tournament</a></li>
-<li><a href="#show-round-report-menu-of-specific-tournament">4 - Show round report menu of specific tournament</a></li>
-<li><a href="#back-to-the-main-menu">5 - Back to the main menu</a></li>
+<li><a href="#1---show-all-tournaments">1 - Show all tournaments</a></li>
+<li><a href="#2---show-all-saved-players">2 - Show all saved players</a></li>
+<li><a href="#3---show-players-of-specific-tournament">3 - Show players of specific tournament</a></li>
+<li><a href="#4---show-round-report-menu-of-specific-tournament">4 - Show round report menu of specific tournament</a></li>
+<li><a href="#5---back-to-the-main-menu">5 - Back to the main menu</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136050952-cace051e-2370-4967-8742-f1aecd4bf530.png)
 
 ## 1 - Show all tournaments
 
-<li><a href="#<summary><b>report-menu</b></summary>">Click here for back to the table contents</a></li>
+¤***SHOW ALL TOURNAMENTS SAVED IN DATABASE🠋***
+
+![image](https://user-images.githubusercontent.com/81369778/136192951-357076c9-fa3d-4cb6-9400-d7f72edc77a7.png)
+
+<li><a href="#<summary><b>demonstration</b></summary>">Click here for back to the table contents</a></li>
 
 ## 2 - Show all saved players
 
+¤***SHOW ALL PLAYERS SAVED IN DATABASE BY RANKING OR ALPHABETICAL ORDER🠋***
+
+![image](https://user-images.githubusercontent.com/81369778/136193157-55b7faa0-d6a1-45dc-800d-961082562754.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136193200-556d8df6-a8d0-424d-919e-4df3f4f75d6f.png)
+
+<li><a href="demonstration">Click here for back to the table contents</a></li>
+
 ## 3 - Show players of specific tournament
+
+¤***THE PROGRAM WAIT YOU TO CHOOSE A TOURNAMENT ID FOR VIEW ASSOCIATED PLAYERS🠋***
+
+![image](https://user-images.githubusercontent.com/81369778/136193432-2733e213-b24f-4b12-936e-99c5ae6817bd.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136193486-e32a754f-9689-4c58-a95f-002e9e9de004.png)
+
+<li><a href="demonstration">Click here for back to the table contents</a></li>
 
 ## 4 - Show round report menu of specific tournament
 
+¤ ***THE PROGRAM WAIT YOU TO CHOOSE A TOURNAMENT ID AND LOAD THE ROUND MENU REPORT OF THE SELECTED TOURNAMENT🠋***
+- View the round report menu below too see an example of each round report menu option
+
+![image](https://user-images.githubusercontent.com/81369778/136195601-7f21d9a7-0240-4189-88d4-3be3e04bb8de.png)
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>
+
 ## 5 - Back to the main menu
+
+¤***SIMPLY BACK TO THE MAIN MENU***
 
 ¤ ***GO TO THE***
 <a href="#demonstration">MAIN MENU</a>
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>
 
 </details>
 
@@ -249,18 +280,40 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
   <summary><b>ROUND REPORT MENU</b></summary>
 
   
-<li><a href="#show-all-rounds-results">Show all rounds results</a></li>
-<li><a href="#show-round-x-results">Show round X results</a></li>
-<li><a href="#back-to-the-report-menu">Back to the report menu</a></li>
+<li><a href="#1---show-all-rounds-results">1 - Show all rounds results</a></li>
+<li><a href="#2---show-round-x-results">2, 3, 4, 5 - Show round X results</a></li>
+<li><a href="#6---back-to-the-report-menu">6 - Back to the report menu</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136052754-13420d89-8f89-463a-9d51-e2ab289c99a7.png)
 
-## Show all rounds results
+## 1 - Show all rounds results
 
-## Show round X results
+¤***SHOW ALL ROUNDS RESULT OF THE SELECTED TOURNAMENT🠋***
 
-## Back to the report menu
-  
+![image](https://user-images.githubusercontent.com/81369778/136208089-65950399-861d-4a69-a914-31bdc04939ab.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136208171-2a9a8afd-e95a-4378-a66f-9b4d1a62633c.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136208216-bda23ec8-02ac-4668-8502-c4b85521c63d.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136208246-641ddf9c-bd5f-48e4-9040-0ef4f44afb39.png)
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>
+
+## 2 - Show round X results
+
+¤***SHOW RESULT OF A SPECIFIC ROUND🠋***
+
+![image](https://user-images.githubusercontent.com/81369778/136208216-bda23ec8-02ac-4668-8502-c4b85521c63d.png)
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>
+
+## 6 - Back to the report menu
+
+¤***SIMPLY BACK TO THE REPORT MENU***
+
+<li><a href="#demonstration">Click here for back to the table contents</a></li>
+
 </details>
 
 &nbsp;
