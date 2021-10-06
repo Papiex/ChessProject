@@ -93,12 +93,12 @@ See the three drop-down menus below for an example of each menu option.
   <summary><b>MAIN MENU</b></summary>
 
 <li><a href="#1---create-a-tournament">1 - Create a tournament</a></li>
-<li><a href="#add-players-to-a-tournament">Add players to a Tournament</a></li>
-<li><a href="#launch-or-continue-a-tournament">Launch or continue a tournament</a></li>
-<li><a href="#add-player-to-database">Add player to database</a></li>
-<li><a href="#modify-player-general-score">Modify player general score</a></li>
-<li><a href="#report-menu">Report menu</a></li>
-<li><a href="#exit-the-program">Exit the program</a></li>
+<li><a href="#2---add-players-to-a-tournament">2 - Add players to a Tournament</a></li>
+<li><a href="#3---launch-or-continue-a-tournament">3 - Launch or continue a tournament</a></li>
+<li><a href="#4---add-player-to-database">4 - Add player to database</a></li>
+<li><a href="#5---modify-player-general-score">5 - Modify player general score</a></li>
+<li><a href="#6---report-menu">6 - Report menu</a></li>
+<li><a href="#7---exit-the-program">7 - Exit the program</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
 
@@ -117,10 +117,11 @@ See the three drop-down menus below for an example of each menu option.
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Add players to a Tournament
+## 2 - Add players to a Tournament
 
 ¤ ***THE PROGRAM WILL SHOW YOU ALL THE TOURNAMENTS
 AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
+- If database have no tournament, the program will raise an error
 
 ![image](https://user-images.githubusercontent.com/81369778/136026037-f0a6370e-428d-4f8f-b940-3eaea5b41beb.png)
 
@@ -134,11 +135,34 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Launch or continue a tournament
+## 3 - Launch or continue a tournament
+
+¤ ***THE PROGRAM WILL SHOW YOU ALL THE TOURNAMENTS
+AND WAIT YOU CHOOSE TOURNAMENT ID TO LAUNCHED 🠋***
+- If database have no tournament, the program will raise an error
+
+![image](https://user-images.githubusercontent.com/81369778/136172114-2ff6d040-ad7c-4161-a42a-244ea669028b.png)
+
+¤ ***THE FIRST ROUND IS RUN ONLY IF 8 PLAYERS HAVE BEEN PREVIOUSLY ADDED TO THE TOURNAMENT SELECTED***
+
+¤ ***NOW YOU HAVE TO ENTER EVERY MATCH RESULT FOR THE ROUND 1 ACCORDING TO THE BOARD***
+- You only need to enter the result of the first player of players pair, the result of second player is
+  automatically selected according to the result of the first player
+
+![image](https://user-images.githubusercontent.com/81369778/136173207-ba3fea52-c03e-4dfc-af21-d5fcc4b4edf5.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136175079-b1ab532a-a326-4a52-acd6-ca1e4e6e000b.png)
+
+¤ ***WHEN A ROUND IS FINISHED YOU HAVE TO CHOOSE IF YOU WANT TO CONTINUE TO THE NEXT ROUND OR EXIT AND SAVE🠋***
+- If you choose to exit and save,
+the next time you restart this tournament, you will continue in the round where you stopped
+- When at least one round is finished you can view the report in the round report menu of this tournament
+
+![image](https://user-images.githubusercontent.com/81369778/136175829-f29bf63e-c6fc-470e-861f-78119a1ec113.png)
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Add player to database
+## 4 - Add player to database
 
 ¤ ***THE PROGRAM WILL ASK YOU :***
 - The first name
@@ -152,18 +176,28 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Modify player general score
+## 5 - Modify player general score
+
+¤***THE PROGRAM WILL SHOW YOU THE LIST OF ALL PLAYERS AND WAIT YOU TO CHOOSE
+ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
+- After you enter the new score, the program display the new score of the player
+
+![image](https://user-images.githubusercontent.com/81369778/136179371-51fbc1aa-e7ad-475f-b4ec-4cf9e509cb68.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136180493-fb24f919-0ee1-45a4-999b-387a1298b8ae.png)
+
+![image](https://user-images.githubusercontent.com/81369778/136180554-73761747-0334-4414-ac36-ac8560af2d11.png)
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Report menu
+## 6 - Report menu
 
 ¤ ***GO TO THE***
-<a href="#report-menu">REPORT MENU</a>
+<a href="#demonstration">REPORT MENU</a>
 
 <li><a href="#demonstration">Click here for back to the table contents</a></li>  
   
-## Exit the program
+## 7 - Exit the program
 
 ¤ ***SIMPLY EXIT THE PROGRAM***
 
@@ -180,24 +214,29 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 <details>
   <summary><b>REPORT MENU</b></summary>
 
-<li><a href="#show-all-tournaments">Show all tournaments</a></li>
-<li><a href="#show-all-saved-players">Show all saved players</a></li>
-<li><a href="#show-players-of-specific-tournament">Show players of specific tournament</a></li>
-<li><a href="#show-round-report-menu-of-specific-tournament">Show round report menu of specific tournament</a></li>
-<li><a href="#back-to-the-main-menu">Back to the main menu</a></li>
+<li><a href="#show-all-tournaments">1 - Show all tournaments</a></li>
+<li><a href="#show-all-saved-players">2 - Show all saved players</a></li>
+<li><a href="#show-players-of-specific-tournament">3 - Show players of specific tournament</a></li>
+<li><a href="#show-round-report-menu-of-specific-tournament">4 - Show round report menu of specific tournament</a></li>
+<li><a href="#back-to-the-main-menu">5 - Back to the main menu</a></li>
 
 ![image](https://user-images.githubusercontent.com/81369778/136050952-cace051e-2370-4967-8742-f1aecd4bf530.png)
 
-## Show all tournaments
+## 1 - Show all tournaments
 
-## Show all saved players
+<li><a href="#<summary><b>report-menu</b></summary>">Click here for back to the table contents</a></li>
 
-## Show players of specific tournament
+## 2 - Show all saved players
 
-## Show round report menu of specific tournament
+## 3 - Show players of specific tournament
 
-## Back to the main menu
- 
+## 4 - Show round report menu of specific tournament
+
+## 5 - Back to the main menu
+
+¤ ***GO TO THE***
+<a href="#demonstration">MAIN MENU</a>
+
 </details>
 
 &nbsp;
