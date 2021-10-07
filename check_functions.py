@@ -3,8 +3,10 @@ from string import digits, punctuation
 
 import datetime
 
+from tinydb.table import Table
 
-def check_input_string_len(string_to_check) -> bool:
+
+def check_input_string_len(string_to_check: str) -> bool:
     """Check input string entry for enter 2 character minimum"""
     if len(string_to_check) < 2:
         print("The minimum number of characters required is 2 : ")
@@ -12,7 +14,7 @@ def check_input_string_len(string_to_check) -> bool:
     return True
 
 
-def check_input_string_integer(string_to_check) -> bool:
+def check_input_string_integer(string_to_check: str) -> bool:
     """check if string have numbers in, return True or False"""
     for number in digits:
         if number in string_to_check:
@@ -21,7 +23,7 @@ def check_input_string_integer(string_to_check) -> bool:
     return True
 
 
-def check_input_string_special(string_to_check) -> bool:
+def check_input_string_special(string_to_check: str) -> bool:
     """Check input string entry for not to use special characters"""
     for symbol in punctuation:
         if symbol in string_to_check:
@@ -50,22 +52,26 @@ def check_not_same_value(players_id: list, id_choice: int) -> bool:
     return True
 
 
-def request_id(data_file) -> int:
+def request_id(data_file: Table) -> int:
     """request user entry for integer only"""
     while True:
-        try:
-            id_choice = int(input())
-        except ValueError:
-            print("Enter only numbers : ")
-
         object_counter = 0
         for object in data_file:
             object_counter += 1
-        if id_choice == "":
+
+        if object_counter == 0:
+            id_choice = None
+        else:
+            try:
+                id_choice = int(input())
+            except ValueError:
+                print("Enter only numbers : ")
+
+        if id_choice is not None and id_choice == "":
             print("Select a valid id : ")
-        elif id_choice == 0:
+        elif id_choice is not None and id_choice == 0:
             print("Select a valid id : ")
-        elif id_choice > object_counter:
+        elif id_choice is not None and id_choice > object_counter:
             print("Select a valid id : ")
         else:
             return id_choice
