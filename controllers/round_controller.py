@@ -13,7 +13,7 @@ class RoundController:
     def __init__(self, view) -> None:
         self.view = view
 
-    def get_score_input(self, player_a: Player, player_b: Player):
+    def get_score_input(self, player_a: Player, player_b: Player) -> tuple:
         """get user entry for a tour between two players"""
         result = self.view.request_specific_number_only(player_a, player_b)
         player_a.faced_players.append(player_b.first_name)
@@ -41,13 +41,12 @@ class RoundController:
         return tuple_result
 
     def run_rounds(self) -> Union[list[list[tuple]], Round]:
-        """run rounds 1 to 4 and return result list and the round instance"""
+        """run rounds 1 to 4 of a tournament"""
         tournament_id = self.view.request_id(TOURNAMENTS)
         round = Round(tournament_id)
         tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
         if tournament.get_actual_round() == 1:
             tuple_results = []
-
             start_time = self.view.display_rounds_message("1", "start")
             pairing_players = round.pairing_first_round()
             for pair in pairing_players:
@@ -57,7 +56,6 @@ class RoundController:
             tournament.save_players_for_next_round(players_list, tournament_id)
             end_time = self.view.display_rounds_message("1", "end")
             tuple_results.append((start_time, end_time))
-
             tournament.current_round += 1
             tournament.save_actual_round(tournament_id)
             round.update_rounds_score(tuple_results, "round_1")
@@ -66,12 +64,9 @@ class RoundController:
             if response_for_next_round == "Yes":
                 pass
             else:
-                # STOP METHODE
                 return
-
         if tournament.get_actual_round() >= 2:
             current_round = tournament.get_actual_round()
-
             for i in range(current_round, 5):
                 current_round = tournament.get_actual_round()
                 start_time = self.view.display_rounds_message(str(tournament.current_round), "start")
@@ -85,16 +80,15 @@ class RoundController:
                 tournament.save_players_for_next_round(players_list, tournament_id)
                 end_time = self.view.display_rounds_message(str(i), "end")
                 tuple_results.append((start_time, end_time))
-
                 tournament.current_round += 1
                 tournament.save_actual_round(tournament_id)
                 round.update_rounds_score(tuple_results, "round_" + str(current_round))
                 self.view.display_continue_to_next_round()
-                response_for_next_round = check.request_selection_with_number("Yes", "No", "None")
-                if response_for_next_round == "Yes":
-                    pass
+                if current_round >= 4:
+                    tournament.update_general_ranking_tournament(players_list)
                 else:
-                    # STOP METHODE
-                    return
-
-        return round
+                    response_for_next_round = check.request_selection_with_number("Yes", "No", "None")
+                    if response_for_next_round == "Yes":
+                        pass
+                    else:
+                        return
