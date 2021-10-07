@@ -11,7 +11,8 @@ class PlayerView:
 
     def ask_info_player(self) -> str:
         """Get info of a player"""
-
+        utils.clear_terminal()
+        self.display_player_creation()
         print("Enter first name : ")
         while True:
             first_name = input()
@@ -19,7 +20,8 @@ class PlayerView:
                 if check.check_input_string_len(first_name) is True:
                     if check.check_input_string_integer(first_name) is True:
                         break
-
+        utils.clear_terminal()
+        self.display_player_creation()
         print("Enter last name : ")
         while True:
             last_name = input()
@@ -27,37 +29,34 @@ class PlayerView:
                 if check.check_input_string_len(last_name) is True:
                     if check.check_input_string_integer(last_name) is True:
                         break
-
+        utils.clear_terminal()
+        self.display_player_creation()
         print("Enter date of birth with this format YEAR-MONTH-DAY :  ")
         birthday = check.check_date_input()
-
+        utils.clear_terminal()
+        self.display_player_creation()
         print(
             "Enter a number for choose the gender : \n"
             "1 - Man \n"
             "2 - Women"
             )
         genre = check.request_selection_with_number("Man", "Women", "none")
-
-        print("\n The player {} {}, {}, birth on {} has been added to the database !".format(
+        utils.clear_terminal()
+        self.display_player_creation()
+        print("The player {} {}, {}, birth on {} has been added to the database !".format(
             first_name,
             last_name,
             genre,
             birthday))
-
+        utils.display_enter_to_continue()
         return first_name, last_name, birthday, genre
 
     def show_players(self) -> None:
         """Show all players with id in players.json in alphabetical order or not according to the user choice"""
         players_list = []
-        for player in PLAYERS:
-            data_player = ((
-                str(player.get("first_name")) + " " +
-                str(player.get("last_name")) + " | " +
-                str(player.get("birthday")) + " | " +
-                str(player.get("genre")) + " | " +
-                str(player.get("ranking"))
-                ))
-            players_list.append(data_player)
+        for players in PLAYERS:
+            player = Player.deserialize_player(Player, players.doc_id)
+            players_list.append(player)
         utils.clear_terminal()
         print(
             "Do you want the list of players by alphabetical order or by ranking ? \n"
@@ -67,24 +66,25 @@ class PlayerView:
         choice = check.request_selection_with_number("ranking", "alphabetical", "None")
         if choice == "ranking":
             player_id = 0
-            players_list = sorted(players_list, key=lambda player: players_list[4])
+            players_list = sorted(players_list, key=lambda player: player.ranking)
+            players_list.reverse()
             utils.clear_terminal()
             print("==========================================")
             print("List of all Players in ranking order : ")
             print("==========================================")
             for player in players_list:
                 player_id += 1
-                print(str(player_id) + " : " + player)
+                print(str(player_id) + " : " + str(player))
         elif choice == "alphabetical":
             player_id = 0
-            players_list.sort()
+            players_list = sorted(players_list, key=lambda player: player.first_name)
             utils.clear_terminal()
             print("============================================")
             print("List of all Players in alphabetical order : ")
             print("============================================")
             for player in players_list:
                 player_id += 1
-                print(str(player_id) + " : " + player)
+                print(str(player_id) + " : " + str(player))
 
     def show_players_specific_tournament(self) -> None:
         """Show player of specific tournament"""
@@ -116,7 +116,7 @@ class PlayerView:
                 for deserialized_player in deserialized_player_list:
                     print(deserialized_player)
 
-    def create_players_id_dict(self) -> list:
+    def create_players_ids_list(self) -> list:
         """Request 8 id of players saved in players.json and return a list of ids"""
         players_id = []
         self.show_players()
@@ -133,3 +133,15 @@ class PlayerView:
         """Simply display message if players.json are empty"""
         utils.clear_terminal()
         print("\nNo players has been created yet")
+
+    def display_player_creation(self) -> None:
+        """simply print message for players creation"""
+        print(
+            "=====================\n"
+            "   PLAYER CREATION   \n"
+            "====================="
+            )
+
+    def display_choose_player_modify_score(self) -> None:
+        """simply print message for choose player for modify his ranking"""
+        print("\nSelect Player id to modify his ranking : ")
