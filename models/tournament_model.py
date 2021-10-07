@@ -1,8 +1,6 @@
 from models.player_model import Player
 from data import TOURNAMENTS
 
-from typing import Union
-
 from tinydb import where
 
 import json
@@ -17,6 +15,7 @@ class Tournament:
         self.place = place
         self.date = date
         self.current_round = 1
+        self.default_round_number = 4
         self.players = {}
         self.players_round_list = []
         self.time = time
@@ -47,14 +46,14 @@ class Tournament:
         """return the actual round integer"""
         return self.current_round
 
-    def save_actual_round(self, tournament_id) -> None:
+    def save_actual_round(self, tournament_id: int) -> None:
         """save the actual round number fo the tournament in tournaments.json"""
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         TOURNAMENTS.update(
             {"current_round": self.current_round},
             where("current_round") == tournament_data.get("current_round"))
 
-    def save_players_for_next_round(self, players_list: list[Player], tournament_id):
+    def save_players_for_next_round(self, players_list: list[Player], tournament_id: int) -> None:
         """save and serialize players_list to resume rounds"""
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         self.players_round_list = []
@@ -65,7 +64,7 @@ class Tournament:
             {"players_round_list": self.players_round_list},
             where("players_round_list") == tournament_data.get("players_round_list"))
 
-    def get_players_for_continue_tournament(self, tournament_id):
+    def get_players_for_continue_tournament(self, tournament_id: int) -> list[Player]:
         """load and instantiate player from the tournament started previously"""
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         players_list = tournament_data.get("players_round_list")
@@ -75,8 +74,20 @@ class Tournament:
             deserialized_players_list.append(player)
         return deserialized_players_list
 
+    def update_general_ranking_tournament(self, players_list: list[Player]) -> None:
+        """Update general ranking of a player after a tournament in players database"""
+        for player in players_list:
+            player.update_general_ranking()
+
+    def __repr__(self) -> str:
+        """redifining repr method for print cleaned data"""
+        return (
+            f"{self.name} | {self.place} | {self.date}"
+            f" | Time : {self.time} | Turns number : {self.default_round_number} | {self.description}"
+        )
+
     @staticmethod
-    def deserialize_tournament(cls, tournament_id: int) -> Union["Tournament", int]:
+    def deserialize_tournament(cls, tournament_id: int) -> "Tournament":
         """deserialize a tournament saved in tournaments.json and instantiate it"""
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         tournament = cls(
