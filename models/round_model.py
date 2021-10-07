@@ -54,7 +54,6 @@ class Round:
         times_number_loop = 0
         breaks_number = 0
         while len(apairing_players) != 4:
-            # Briser derniére paire si nombre de boucle == 50
             times_number_loop += 1
             if id_number == 8:
                 id_number = 0
@@ -64,8 +63,6 @@ class Round:
             else:
                 already_paired.append(pair[0])
                 already_paired.append(pair[1])
-                # pair[0].faced_players.append(pair[1].first_name)
-                # pair[1].faced_players.append(pair[0].first_name)
                 apairing_players.append(pair)
                 id_number += 1
             if times_number_loop == 50:

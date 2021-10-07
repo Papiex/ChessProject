@@ -4,6 +4,8 @@ import utils
 
 import json
 
+from tinydb import Query
+
 
 class Player:
     """Class defining a player with first and last name, birthday, genre and his ranking"""
@@ -33,23 +35,23 @@ class Player:
         serialized_player = json.dumps(self.__dict__)
         return serialized_player
 
-    def update_general_ranking(self):
-        """Update general ranking of a player after a tournament in players database"""
-        pass
-
-    @staticmethod
-    def modify_player_ranking(cls: "Player"):
+    def modify_player_ranking(self, player_id: int) -> None:
         """To modify manually the player ranking"""
-        player_id = check.request_id(PLAYERS)
-        print(str(player_id))
-        player = Player.deserialize_player(Player, player_id)
         utils.clear_terminal()
-        print(f"The general score of {player.first_name} is {str(player.ranking)}")
-        print(f"Enter the new general score for {player.first_name} : ")
+        print(f"The general score of {self.first_name} is {str(self.ranking)}")
+        print(f"Enter the new general score for {self.first_name} : ")
         new_player_score = check.request_only_numbers()
         PLAYERS.update({"ranking": new_player_score}, doc_ids=[player_id])
-        print(f"The general score of {player.first_name} is now at {str(new_player_score)}")
+        print(f"The general score of {self.first_name} is now at {str(new_player_score)}")
         utils.display_enter_to_continue()
+
+    def update_general_ranking(self) -> None:
+        """Update the general ranking of a player after a tournament"""
+        User = Query()
+        self.ranking = self.ranking + self.tournament_score
+        player_db = PLAYERS.get((User.first_name == self.first_name) & (User.last_name == self.last_name))
+        player_id = player_db.doc_id
+        PLAYERS.update({"ranking": self.ranking}, doc_ids=[player_id])
 
     @staticmethod
     def deserialize_player(cls, key: int) -> "Player":
@@ -65,19 +67,6 @@ class Player:
         )
         return player
 
-    @staticmethod
-    def deserialize_player_for_next_round(cls, player_dict) -> "Player":
-        """deserialize one player and instantiate it"""
-        player = cls(
-            first_name=player_dict.get("first_name"),
-            last_name=player_dict.get("last_name"),
-            birthday=player_dict.get("birthday"),
-            genre=player_dict.get("genre"),
-            ranking=player_dict.get("ranking"),
-        )
-        player.faced_players = player_dict.get("faced_players")
-        return player
-
-    def __repr__(self):
+    def __repr__(self) -> str:
         """redifining repr method for print cleaned data"""
         return f"{self.first_name} {self.last_name} | {self.birthday} | {self.genre} | {self.ranking}"

@@ -25,7 +25,7 @@ class TournamentController:
         tournament = Tournament(name, place, date, time, description)
         tournament.save()
 
-    def add_tournament_players(self):
+    def add_tournament_players(self) -> None:
         """Add 8 serialized players to a selected tournament"""
         if self.check_data_tournaments_numbers():
             self.view.display_empty_tournaments_file()
@@ -43,9 +43,6 @@ class TournamentController:
                 serialized_players_list.append(serialized_player)
 
             TOURNAMENTS.update({"players": serialized_players_list}, where("name") == tournament_data.get("name"))
-            TOURNAMENTS.update(
-                {"players_round_id": tournament.players_round_id},
-                where("players_round_id") == tournament_data.get("players_round_id"))
 
             utils.clear_terminal()
             self.view.display_selected_players(tournament.players)
@@ -60,3 +57,12 @@ class TournamentController:
             return False
         else:
             return True
+
+    def check_if_empty_score_json(self, tournament_id: int, number: int) -> bool:
+        """check if score_round_X have score saved in"""
+        score_round = "score_round_" + number
+        tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+        if tournament_data.get(score_round) == []:
+            return True
+        else:
+            return False

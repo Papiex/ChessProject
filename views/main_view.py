@@ -17,8 +17,9 @@ class View:
             "                | 2 -   Add players to a Tournament    |\n"
             "                | 3 - Launch or continue a Tournament  |\n"
             "                | 4 -     Add player to database       |\n"
-            "                | 5 -         Reports Menu             |\n"
-            "                | 6 -       Exit the program           |"
+            "                | 5 -   Modify Player general score    |\n"
+            "                | 6 -         Reports Menu             |\n"
+            "                | 7 -       Exit the program           |"
 
             )
         print(" ________________________________________________________________")
@@ -42,7 +43,7 @@ class View:
         response = input("Choose a number to browse a report : ")
         return response
 
-    def round_report_menu(self, tournament_id) -> str:
+    def round_report_menu(self, tournament_id: int) -> str:
         """round report menu of the programm"""
         utils.clear_terminal()
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)

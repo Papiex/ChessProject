@@ -17,9 +17,9 @@ class PlayerController:
         player.save()
 
     def instantiates_players(self) -> list[Player]:
-        """deserialize 8 players selected by the user in a dict"""
+        """deserialize 8 players selected by the user in a list"""
         deserialized_players_list = []
-        players_ids_list = self.view.create_players_id_dict()
+        players_ids_list = self.view.create_players_ids_list()
         for player_id in players_ids_list:
             player = Player.deserialize_player(Player, player_id)
             deserialized_players_list.append(player)
