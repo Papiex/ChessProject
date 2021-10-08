@@ -1,7 +1,7 @@
 from models.tournament_model import Tournament
 from controllers.player_controller import PlayerController
 from views.player_view import PlayerView
-from data import TOURNAMENTS
+from data import TOURNAMENTS, PLAYERS
 
 import check_functions as check
 import utils
@@ -18,9 +18,6 @@ class TournamentController:
 
     def get_info_tournament(self) -> None:
         """Get the user entry info and create tournament"""
-        while True:
-            if self.view.check_data_players_numbers() is True:
-                break
         name, place, date, time, description = self.view.ask_info_tournament()
         tournament = Tournament(name, place, date, time, description)
         tournament.save()
@@ -29,10 +26,13 @@ class TournamentController:
         """Add 8 serialized players to a selected tournament"""
         if self.check_data_tournaments_numbers():
             self.view.display_empty_tournaments_file()
+        self.view.show_tournaments()
+        self.view.display_choose_a_tournament()
+        tournament_id = check.request_id(TOURNAMENTS)
+        if self.check_tournament_players(tournament_id):
+            utils.clear_terminal()
+            self.view.display_already_players()
         else:
-            self.view.show_tournaments()
-            self.view.display_choose_a_tournament()
-            tournament_id = check.request_id(TOURNAMENTS)
             tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
             tournament.players = self.player_controller.instantiates_players()
             tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
@@ -66,3 +66,22 @@ class TournamentController:
             return True
         else:
             return False
+
+    def check_tournament_players(self, tournament_id: int) -> bool:
+        """check if a players have already 8 players"""
+        tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+        players = tournament_data.get("players")
+        if players == []:
+            return False
+        else:
+            return True
+
+    def check_data_players_numbers(self) -> bool:
+        """check if database has 8 minimum players saved in for create a tournament"""
+        get_players_numbers_saved = 0
+        for player in PLAYERS:
+            get_players_numbers_saved += 1
+        if get_players_numbers_saved <= 7:
+            return False
+        elif get_players_numbers_saved == 8 or get_players_numbers_saved > 8:
+            return True

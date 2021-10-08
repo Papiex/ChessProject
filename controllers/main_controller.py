@@ -40,8 +40,12 @@ class Controller:
                 self.tournament_controller.get_info_tournament()
             if selection == "2":
                 utils.clear_terminal()
-                self.tournament_controller.add_tournament_players()
-                utils.display_enter_to_continue()
+                if self.tournament_controller.check_data_players_numbers():
+                    self.tournament_controller.add_tournament_players()
+                    utils.display_enter_to_continue()
+                else:
+                    self.tournament_view.display_no_enought_players()
+                    utils.display_enter_to_continue()
             if selection == "3":
                 if self.tournament_controller.check_data_tournaments_numbers():
                     self.tournament_view.display_empty_tournaments_file()

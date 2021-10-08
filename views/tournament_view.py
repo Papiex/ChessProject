@@ -160,3 +160,11 @@ class TournamentView:
     def display_no_score(self, number: str) -> None:
         """simply print message when a requested round result is empty"""
         print(f"ROUND {number} have not been played yet")
+
+    def display_no_enought_players(self) -> None:
+        """simply print message if database players < 8"""
+        print("The database of players need 8 saved players minimum !")
+
+    def display_already_players(self) -> None:
+        """simply print message if tourrnament have already 8 players"""
+        print("8 players have already been added to this tournament !")
