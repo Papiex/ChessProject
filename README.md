@@ -1,13 +1,13 @@
 # Tournament Chess Program
 
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#gitbash">Gitbash</a></li>
-<li><a href="#installation-on-windows">Installation on Windows</a></li>
-<li><a href="#installation-on-linux">Installation on Linux</a></li>
-<li><a href="#installation-on-mac">Installation on Mac</a></li>
-<li><a href="#libraries">Libraries</a></li>
-<li><a href="#generate-flake8-report">Generate Flake8 report</a></li>
-<li><a href="#demonstration">Demonstration</a></li>
+- [Requirements](#requirements)
+- [GitBash](#gitbash)
+- [Installation on Windows](#installation-on-windows)
+- [Installation on Linux](#installation-on-linux)
+- [Installation on Mac](#installation-on-mac)
+- [Libraries](#libraries)
+- [Generate Flake8 report](#generate-flake8-report)
+- [Demonstration](#demonstration)
 
 ### This program allows you to 🠋
 
