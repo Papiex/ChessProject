@@ -1,13 +1,13 @@
 # Tournament Chess Program
 
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#gitbash">Gitbash</a></li>
-<li><a href="#installation-on-windows">Installation on Windows</a></li>
-<li><a href="#installation-on-linux">Installation on Linux</a></li>
-<li><a href="#installation-on-mac">Installation on Mac</a></li>
-<li><a href="#libraries">Libraries</a></li>
-<li><a href="#generate-flake8-report">Generate Flake8 report</a></li>
-<li><a href="#demonstration">Demonstration</a></li>
+- [Requirements](#requirements)
+- [GitBash](#gitbash)
+- [Installation on Windows](#installation-on-windows)
+- [Installation on Linux](#installation-on-linux)
+- [Installation on Mac](#installation-on-mac)
+- [Libraries](#libraries)
+- [Generate Flake8 report](#generate-flake8-report)
+- [Demonstration](#demonstration)
 
 ### This program allows you to 🠋
 
@@ -23,7 +23,7 @@
 
 - To have a report menu for the information of a player or a round or a tournament
 
-*See below for a* <a href="#demonstration">Demonstration</a>
+*See below for a* [Demonstration](#demonstration)
 
 ## Requirements
 This script is write with Python 3 and require minimum :
@@ -104,13 +104,13 @@ There are three different menus in the program.
 <details>
   <summary><b>MAIN MENU</b></summary>
 
-<li><a href="#1---create-a-tournament">1 - Create a tournament</a></li>
-<li><a href="#2---add-players-to-a-tournament">2 - Add players to a Tournament</a></li>
-<li><a href="#3---launch-or-continue-a-tournament">3 - Launch or continue a tournament</a></li>
-<li><a href="#4---add-player-to-database">4 - Add player to database</a></li>
-<li><a href="#5---modify-player-general-score">5 - Modify player general score</a></li>
-<li><a href="#6---report-menu">6 - Report menu</a></li>
-<li><a href="#7---exit-the-program">7 - Exit the program</a></li>
+- [1 - Create a tournament](#1---create-a-tournament)
+- [2 - Add players to a Tournament](#2---add-players-to-a-tournament)
+- [3 - Launch or continue a tournament](#3---launch-or-continue-a-tournament)
+- [4 - Add player to database](#4---add-player-to-database)
+- [5 - Modify player general score](#5---modify-player-general-score)
+- [6 - Report menu](#6---report-menu)
+- [7 - Exit the program](#7---exit-the-program)
 
 ![image](https://user-images.githubusercontent.com/81369778/136022869-22b1f44c-b777-46e4-9f4b-4c334afbe9a0.png)
 
@@ -127,7 +127,7 @@ There are three different menus in the program.
 
 ![image](https://user-images.githubusercontent.com/81369778/136024702-b5e2a6e7-1aeb-4160-bffc-27826356c941.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration)
   
 ## 2 - Add players to a Tournament
 
@@ -145,7 +145,7 @@ AND WAIT YOU CHOOSE TOURNAMENT ID FOR ADD PLAYERS 🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136037072-357847c4-6f50-411b-bc88-3a33c729d4de.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration)  
   
 ## 3 - Launch or continue a tournament
 
@@ -172,7 +172,7 @@ the next time you restart this tournament, you will continue in the round where 
 
 ![image](https://user-images.githubusercontent.com/81369778/136175829-f29bf63e-c6fc-470e-861f-78119a1ec113.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration) 
   
 ## 4 - Add player to database
 
@@ -186,7 +186,7 @@ the next time you restart this tournament, you will continue in the round where 
 
 ![image](https://user-images.githubusercontent.com/81369778/136023836-f68d5432-e6f1-4aeb-8385-d900e0da2640.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration)  
   
 ## 5 - Modify player general score
 
@@ -200,20 +200,20 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136180554-73761747-0334-4414-ac36-ac8560af2d11.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration) 
   
 ## 6 - Report menu
 
 ¤ ***GO TO THE***
-<a href="#demonstration">REPORT MENU</a>
+[REPORT MENU](#demonstration)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration)  
   
 ## 7 - Exit the program
 
 ¤ ***SIMPLY EXIT THE PROGRAM***
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>  
+[Click here for back to the table contents](#demonstration) 
   
 </details>
 
@@ -226,11 +226,11 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 <details>
   <summary><b>REPORT MENU</b></summary>
 
-<li><a href="#1---show-all-tournaments">1 - Show all tournaments</a></li>
-<li><a href="#2---show-all-saved-players">2 - Show all saved players</a></li>
-<li><a href="#3---show-players-of-specific-tournament">3 - Show players of specific tournament</a></li>
-<li><a href="#4---show-round-report-menu-of-specific-tournament">4 - Show round report menu of specific tournament</a></li>
-<li><a href="#5---back-to-the-main-menu">5 - Back to the main menu</a></li>
+- [1 - Show all tournaments](#1---show-all-tournaments)
+- [2 - Show all saved players](#2---show-all-saved-players)
+- [3 - Show players of specific tournament](#3---show-players-of-specific-tournament)
+- [4 - Show round report menu of specific tournament](#4---show-round-report-menu-of-specific-tournament)
+- [5 - Back to the main menu](#5---back-to-the-main-menu)
 
 ![image](https://user-images.githubusercontent.com/81369778/136050952-cace051e-2370-4967-8742-f1aecd4bf530.png)
 
@@ -240,7 +240,7 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136192951-357076c9-fa3d-4cb6-9400-d7f72edc77a7.png)
 
-<li><a href="#<summary><b>demonstration</b></summary>">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 2 - Show all saved players
 
@@ -250,7 +250,7 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136193200-556d8df6-a8d0-424d-919e-4df3f4f75d6f.png)
 
-<li><a href="demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 3 - Show players of specific tournament
 
@@ -260,7 +260,7 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136193486-e32a754f-9689-4c58-a95f-002e9e9de004.png)
 
-<li><a href="demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 4 - Show round report menu of specific tournament
 
@@ -269,13 +269,13 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136195601-7f21d9a7-0240-4189-88d4-3be3e04bb8de.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 5 - Back to the main menu
 
 ¤***SIMPLY BACK TO THE MAIN MENU***
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 </details>
 
@@ -289,9 +289,9 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
   <summary><b>ROUND REPORT MENU</b></summary>
 
   
-<li><a href="#1---show-all-rounds-results">1 - Show all rounds results</a></li>
-<li><a href="#2---show-round-x-results">2, 3, 4, 5 - Show round X results</a></li>
-<li><a href="#6---back-to-the-report-menu">6 - Back to the report menu</a></li>
+- [1 - Show all rounds results](#1---show-all-rounds-results)
+- [2, 3, 4, 5 - Show round X results](#2---show-round-x-results)
+- [6 - Back to the report menu](#6---back-to-the-report-menu)
 
 ![image](https://user-images.githubusercontent.com/81369778/136052754-13420d89-8f89-463a-9d51-e2ab289c99a7.png)
 
@@ -307,7 +307,7 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136208246-641ddf9c-bd5f-48e4-9040-0ef4f44afb39.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 2 - Show round X results
 
@@ -315,13 +315,13 @@ ID OF ONE PLAYER TO MODIFY HIS GENERAL RANKING🠋***
 
 ![image](https://user-images.githubusercontent.com/81369778/136208216-bda23ec8-02ac-4668-8502-c4b85521c63d.png)
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 ## 6 - Back to the report menu
 
 ¤***SIMPLY BACK TO THE REPORT MENU***
 
-<li><a href="#demonstration">Click here for back to the table contents</a></li>
+[Click here for back to the table contents](#demonstration) 
 
 </details>
 
