@@ -69,4 +69,4 @@ class Player:
 
     def __repr__(self) -> str:
         """redifining repr method for print cleaned data"""
-        return f"{self.first_name} {self.last_name} | {self.birthday} | {self.genre} | {self.ranking}"
+        return f"{self.first_name} {self.last_name} | {self.birthday} | {self.genre} | {float(self.ranking)}"
