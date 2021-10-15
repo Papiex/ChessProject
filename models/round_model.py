@@ -16,6 +16,7 @@ class Round:
     def __init__(self, tournament_id: int) -> None:
         self.tournament_id = tournament_id
         self.tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
+        self.result = []
 
     def pairing_first_round(self) -> list[Player]:
         """pairing of first-round players according to their ranking"""
@@ -108,27 +109,24 @@ class Round:
                 else:
                     return pair
 
-    def update_rounds_score(self, tuple_results: list[tuple[Player]], round_number: str) -> None:
+    def update_rounds_score(self, tuple_results: list[tuple[Player]], current_round: int) -> None:
         """
         save the result of a match
-        round_number parameter :
-            Enter "round_1" for save score of the round_1
-            Enter "round_2" for save score of the round_2 ect ...
         """
         utils.display_enter_to_continue()
-        if round_number == "round_1":
+        if current_round == 1:
             TOURNAMENTS.update(
                 {"score_round_1": tuple_results}, where("score_round_1") == self.tournament_data.get("score_round_1")
                 )
-        if round_number == "round_2":
+        if current_round == 2:
             TOURNAMENTS.update(
                 {"score_round_2": tuple_results}, where("score_round_2") == self.tournament_data.get("score_round_2")
                 )
-        if round_number == "round_3":
+        if current_round == 3:
             TOURNAMENTS.update(
                 {"score_round_3": tuple_results}, where("score_round_3") == self.tournament_data.get("score_round_3")
                 )
-        if round_number == "round_4":
+        if current_round == 4:
             TOURNAMENTS.update(
                 {"score_round_4": tuple_results}, where("score_round_4") == self.tournament_data.get("score_round_4")
                 )

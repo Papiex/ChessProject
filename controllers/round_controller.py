@@ -3,9 +3,9 @@ from models.player_model import Player
 from models.tournament_model import Tournament
 from data import TOURNAMENTS
 
-from typing import Union
-
 import check_functions as check
+
+import utils
 
 
 class RoundController:
@@ -40,55 +40,62 @@ class RoundController:
             ))
         return tuple_result
 
-    def run_rounds(self) -> Union[list[list[tuple]], Round]:
+    def run_rounds(self) -> None:
         """run rounds 1 to 4 of a tournament"""
         tournament_id = self.view.request_id(TOURNAMENTS)
         round = Round(tournament_id)
         tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
         if tournament.get_actual_round() == 1:
-            tuple_results = []
             start_time = self.view.display_rounds_message("1", "start")
             pairing_players = round.pairing_first_round()
             for pair in pairing_players:
                 tuple_result = self.get_score_input(pair[0], pair[1])
-                tuple_results.append(tuple_result)
+                round.result.append(tuple_result)
             players_list = [item for sublist in pairing_players for item in sublist]
-            tournament.save_players_for_next_round(players_list, tournament_id)
             end_time = self.view.display_rounds_message("1", "end")
-            tuple_results.append((start_time, end_time))
-            tournament.current_round += 1
-            tournament.save_actual_round(tournament_id)
-            round.update_rounds_score(tuple_results, "round_1")
-            self.view.display_continue_to_next_round()
-            response_for_next_round = check.request_selection_with_number("Yes", "No", "None")
+            round.result.append((start_time, end_time))
+            response_for_next_round = self.save_data(tournament, round, players_list, tournament_id)
             if response_for_next_round == "Yes":
                 pass
             else:
-                return
-        if tournament.get_actual_round() >= 2:
+                return None
+        if tournament.get_actual_round() >= 2 and not tournament.get_actual_round() == 5:
             current_round = tournament.get_actual_round()
             for i in range(current_round, 5):
                 current_round = tournament.get_actual_round()
                 start_time = self.view.display_rounds_message(str(tournament.current_round), "start")
-                tuple_results = []
                 players_list = tournament.get_players_for_continue_tournament(tournament_id)
                 pairing_players = round.pairing_other_rounds(players_list)
                 for pair in pairing_players:
                     tuple_result = self.get_score_input(pair[0], pair[1])
-                    tuple_results.append(tuple_result)
+                    round.result.append(tuple_result)
                 players_list = [item for sublist in pairing_players for item in sublist]
-                tournament.save_players_for_next_round(players_list, tournament_id)
                 end_time = self.view.display_rounds_message(str(i), "end")
-                tuple_results.append((start_time, end_time))
-                tournament.current_round += 1
-                tournament.save_actual_round(tournament_id)
-                round.update_rounds_score(tuple_results, "round_" + str(current_round))
-                self.view.display_continue_to_next_round()
-                if current_round >= 4:
-                    tournament.update_general_ranking_tournament(players_list)
+                round.result.append((start_time, end_time))
+                response_for_next_round = self.save_data(tournament, round, players_list, tournament_id)
+                if response_for_next_round == "Yes":
+                    pass
                 else:
-                    response_for_next_round = check.request_selection_with_number("Yes", "No", "None")
-                    if response_for_next_round == "Yes":
-                        pass
-                    else:
-                        return
+                    return None
+
+    def save_data(self, tournament: Tournament, round: Round, players_list: list[Player], tournament_id: int) -> str:
+        """saving data when runnings rounds, return the response for the next round"""
+
+        if tournament.get_actual_round() == 4:
+            round.update_rounds_score(round.result, tournament.current_round)
+            tournament.update_general_ranking_tournament(players_list)
+            response_for_next_round = "No"
+            tournament.current_round += 1
+            tournament.save_actual_round(tournament_id)
+        elif tournament.get_actual_round() == 5:
+            self.view.display_tournament_end()
+            utils.display_enter_to_continue()
+        else:
+            tournament.save_players_for_next_round(players_list, tournament_id)
+            round.update_rounds_score(round.result, tournament.current_round)
+            round.result = []
+            tournament.current_round += 1
+            tournament.save_actual_round(tournament_id)
+            self.view.display_continue_to_next_round()
+            response_for_next_round = check.request_selection_with_number("Yes", "No", "None")
+        return response_for_next_round
