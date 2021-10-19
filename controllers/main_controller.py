@@ -54,7 +54,13 @@ class Controller:
                     utils.clear_terminal()
                     self.tournament_view.show_tournaments()
                     self.tournament_view.display_launch_continue_tournament()
-                    self.round_controller.run_rounds()
+                    tournament_id = check.request_id(TOURNAMENTS)
+                    if self.tournament_controller.check_tournament_players(tournament_id):
+                        self.round_controller.run_rounds(tournament_id)
+                    else:
+                        utils.clear_terminal()
+                        self.tournament_view.display_no_players_tournament()
+                        utils.display_enter_to_continue()
             if selection == "4":
                 self.player_controller.get_info_player()
             if selection == "5":

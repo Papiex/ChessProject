@@ -71,10 +71,10 @@ class TournamentController:
         """check if a players have already 8 players"""
         tournament_data = TOURNAMENTS.get(doc_id=tournament_id)
         players = tournament_data.get("players")
-        if players == []:
-            return True
-        else:
+        if players == {}:
             return False
+        else:
+            return True
 
     def check_data_players_numbers(self) -> bool:
         """check if database has 8 minimum players saved in for create a tournament"""

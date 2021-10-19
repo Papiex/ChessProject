@@ -1,7 +1,6 @@
 from models.round_model import Round
 from models.player_model import Player
 from models.tournament_model import Tournament
-from data import TOURNAMENTS
 
 import check_functions as check
 
@@ -40,9 +39,8 @@ class RoundController:
             ))
         return tuple_result
 
-    def run_rounds(self) -> None:
+    def run_rounds(self, tournament_id) -> None:
         """run rounds 1 to 4 of a tournament"""
-        tournament_id = self.view.request_id(TOURNAMENTS)
         round = Round(tournament_id)
         tournament = Tournament.deserialize_tournament(Tournament, tournament_id)
         if tournament.get_actual_round() == 1:

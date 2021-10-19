@@ -168,3 +168,7 @@ class TournamentView:
     def display_already_players(self) -> None:
         """simply print message if tourrnament have already 8 players"""
         print("8 players have already been added to this tournament !")
+
+    def display_no_players_tournament(self) -> None:
+        """simply print message if user launch tournament without players"""
+        print("This tournament can't be launched, please add players before !")
